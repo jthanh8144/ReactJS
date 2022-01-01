@@ -252,124 +252,322 @@
 // ReactDOM.render(<App/>, document.querySelector('#root'));
 
 // --------------------------------------------------------
-const courses = [
-    {
-      "id": 2,
-      "title": "HTML, CSS từ Zero đến Hero",
-      "slug": "html-css",
-      "description": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
-      "thumbnail": "courses/2.png",
-      "content": null,
-      "preview_origin": "youtube",
-      "preview_youtube_id": "R6plN3FvzFY",
-      "preview_video": null,
-      "language": "html",
-      "syntax_highlight": "language-html",
-      "level": "Trình độ cơ bản",
-      "priority": 10,
-      "students_count": 103211,
-      "deleted_at": null,
-      "created_at": "2020-04-10T14:23:13.000000Z",
-      "updated_at": "2021-12-31T11:10:48.000000Z",
-      "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/2.png",
-      "preview_video_cdn": ""
-    },
-    {
-      "id": 1,
-      "title": "JavaScript Cơ Bản",
-      "slug": "javascript-co-ban",
-      "description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
-      "thumbnail": "courses/1.png",
-      "content": null,
-      "preview_origin": "youtube",
-      "preview_youtube_id": "0SJE9dYdpps",
-      "preview_video": null,
-      "language": "javascript",
-      "syntax_highlight": "language-javascript",
-      "level": "Trình độ cơ bản",
-      "priority": 30,
-      "students_count": 62465,
-      "deleted_at": null,
-      "created_at": "2020-06-10T14:23:13.000000Z",
-      "updated_at": "2021-12-31T10:56:22.000000Z",
-      "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/1.png",
-      "preview_video_cdn": ""
-    },
-    {
-      "id": 7,
-      "title": "Kiến Thức Nhập Môn",
-      "slug": "lessons-for-newbie",
-      "description": "Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.",
-      "thumbnail": "courses/7.png",
-      "content": null,
-      "preview_origin": "youtube",
-      "preview_youtube_id": "M62l1xA5Eu8",
-      "preview_video": null,
-      "language": null,
-      "syntax_highlight": null,
-      "level": "Trình độ cơ bản",
-      "priority": 0,
-      "students_count": 46264,
-      "deleted_at": null,
-      "created_at": "2020-02-10T14:23:13.000000Z",
-      "updated_at": "2021-12-31T11:06:31.000000Z",
-      "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/7.png",
-      "preview_video_cdn": ""
-    },
-    {
-      "id": 3,
-      "title": "Responsive Với Grid System",
-      "slug": "responsive-web-design",
-      "description": "Trong khóa này chúng ta sẽ học về cách xây dựng giao diện web responsive với Grid System, tương tự Bootstrap 4.",
-      "thumbnail": "courses/3.png",
-      "content": null,
-      "preview_origin": "youtube",
-      "preview_youtube_id": "uz5LIP85J5Y",
-      "preview_video": null,
-      "language": "html",
-      "syntax_highlight": "language-html",
-      "level": "Trình độ cơ bản",
-      "priority": 20,
-      "students_count": 17359,
-      "deleted_at": null,
-      "created_at": "2020-05-10T14:23:13.000000Z",
-      "updated_at": "2021-12-31T10:22:33.000000Z",
-      "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/3.png",
-      "preview_video_cdn": ""
+// const courses = [
+//     {
+//       "id": 2,
+//       "title": "HTML, CSS từ Zero đến Hero",
+//       "slug": "html-css",
+//       "description": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
+//       "thumbnail": "courses/2.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "R6plN3FvzFY",
+//       "preview_video": null,
+//       "language": "html",
+//       "syntax_highlight": "language-html",
+//       "level": "Trình độ cơ bản",
+//       "priority": 10,
+//       "students_count": 103211,
+//       "deleted_at": null,
+//       "created_at": "2020-04-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T11:10:48.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/2.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 1,
+//       "title": "JavaScript Cơ Bản",
+//       "slug": "javascript-co-ban",
+//       "description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+//       "thumbnail": "courses/1.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "0SJE9dYdpps",
+//       "preview_video": null,
+//       "language": "javascript",
+//       "syntax_highlight": "language-javascript",
+//       "level": "Trình độ cơ bản",
+//       "priority": 30,
+//       "students_count": 62465,
+//       "deleted_at": null,
+//       "created_at": "2020-06-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T10:56:22.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/1.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 7,
+//       "title": "Kiến Thức Nhập Môn",
+//       "slug": "lessons-for-newbie",
+//       "description": "Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.",
+//       "thumbnail": "courses/7.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "M62l1xA5Eu8",
+//       "preview_video": null,
+//       "language": null,
+//       "syntax_highlight": null,
+//       "level": "Trình độ cơ bản",
+//       "priority": 0,
+//       "students_count": 46264,
+//       "deleted_at": null,
+//       "created_at": "2020-02-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T11:06:31.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/7.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 3,
+//       "title": "Responsive Với Grid System",
+//       "slug": "responsive-web-design",
+//       "description": "Trong khóa này chúng ta sẽ học về cách xây dựng giao diện web responsive với Grid System, tương tự Bootstrap 4.",
+//       "thumbnail": "courses/3.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "uz5LIP85J5Y",
+//       "preview_video": null,
+//       "language": "html",
+//       "syntax_highlight": "language-html",
+//       "level": "Trình độ cơ bản",
+//       "priority": 20,
+//       "students_count": 17359,
+//       "deleted_at": null,
+//       "created_at": "2020-05-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T10:22:33.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/3.png",
+//       "preview_video_cdn": ""
+//     }
+// ];
+// function CourseItem({
+//     title,
+//     thumbnail_cdn,
+//     description,
+//     studentsCount,
+// }) {
+//     return (
+//         <div className="course-item">
+//             <img src={thumbnail_cdn} alt={title}/>
+//             <h2 className="course-title">{title}</h2>
+//             <p className="course-desc">{description}</p>
+//             <p className="course-student-count">{studentsCount}</p>
+//         </div>
+//     );
+// }
+
+// function CourseList() {
+//     return (
+//         <div className="courses-list">
+//             {
+//                 courses.map((course, index) => {
+//                     return <CourseItem
+//                         key={index}
+//                         title={course.title}
+//                         thumbnail_cdn={course.thumbnail_cdn}
+//                         description={course.description}
+//                         studentsCount={course.students_count}
+//                     />
+//                 })
+//             }
+//         </div>
+//     );
+// }
+// ReactDOM.render(<CourseList/>, document.querySelector('#root'));
+
+// =======================work with JSX=======================
+// function App() {
+//     return (
+//         <div id="wrapper">
+//             <button 
+//                 onClick={() => console.log(Math.random())}
+//             >
+//                 Click me!
+//             </button>
+//         </div>
+//     )
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// --------------------------------------------------------
+// const courses = [
+//     {
+//       "id": 2,
+//       "title": "HTML, CSS từ Zero đến Hero",
+//       "slug": "html-css",
+//       "description": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
+//       "thumbnail": "courses/2.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "R6plN3FvzFY",
+//       "preview_video": null,
+//       "language": "html",
+//       "syntax_highlight": "language-html",
+//       "level": "Trình độ cơ bản",
+//       "priority": 10,
+//       "students_count": 103211,
+//       "deleted_at": null,
+//       "created_at": "2020-04-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T11:10:48.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/2.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 1,
+//       "title": "JavaScript Cơ Bản",
+//       "slug": "javascript-co-ban",
+//       "description": "Học Javascript cơ bản phù hợp cho người chưa từng học lập trình. Với hơn 100 bài học và có bài tập thực hành sau mỗi bài học.",
+//       "thumbnail": "courses/1.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "0SJE9dYdpps",
+//       "preview_video": null,
+//       "language": "javascript",
+//       "syntax_highlight": "language-javascript",
+//       "level": "Trình độ cơ bản",
+//       "priority": 30,
+//       "students_count": 62465,
+//       "deleted_at": null,
+//       "created_at": "2020-06-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T10:56:22.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/1.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 7,
+//       "title": "Kiến Thức Nhập Môn",
+//       "slug": "lessons-for-newbie",
+//       "description": "Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.",
+//       "thumbnail": "courses/7.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "M62l1xA5Eu8",
+//       "preview_video": null,
+//       "language": null,
+//       "syntax_highlight": null,
+//       "level": "Trình độ cơ bản",
+//       "priority": 0,
+//       "students_count": 46264,
+//       "deleted_at": null,
+//       "created_at": "2020-02-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T11:06:31.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/7.png",
+//       "preview_video_cdn": ""
+//     },
+//     {
+//       "id": 3,
+//       "title": "Responsive Với Grid System",
+//       "slug": "responsive-web-design",
+//       "description": "Trong khóa này chúng ta sẽ học về cách xây dựng giao diện web responsive với Grid System, tương tự Bootstrap 4.",
+//       "thumbnail": "courses/3.png",
+//       "content": null,
+//       "preview_origin": "youtube",
+//       "preview_youtube_id": "uz5LIP85J5Y",
+//       "preview_video": null,
+//       "language": "html",
+//       "syntax_highlight": "language-html",
+//       "level": "Trình độ cơ bản",
+//       "priority": 20,
+//       "students_count": 17359,
+//       "deleted_at": null,
+//       "created_at": "2020-05-10T14:23:13.000000Z",
+//       "updated_at": "2021-12-31T10:22:33.000000Z",
+//       "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-learning/courses/3.png",
+//       "preview_video_cdn": ""
+//     }
+// ];
+
+// function CourseItem({ course, onClick }) {
+//     return (
+//         <div className="course-item">
+//             <img src={course.thumbnail_cdn} alt={course.title}/>
+//             <h2 className="course-title"
+//                 onClick={() => onClick(course)}
+//             >
+//                 {course.title}
+//             </h2>
+//             <p className="course-desc">{course.description}</p>
+//             <p className="course-student-count">{course.students_count}</p>
+//         </div>
+//     );
+// }
+
+// function CourseList() {
+//     const handleClick = (course) => {
+//         alert(course.title)
+//     }
+//     return (
+//         <div className="courses-list">
+//             {
+//                 courses.map((course, index) => {
+//                     return <CourseItem
+//                         key={index}
+//                         course={course}
+//                         onClick={handleClick}
+//                     />
+//                 })
+//             }
+//         </div>
+//     );
+// }
+// ReactDOM.render(<CourseList/>, document.querySelector('#root'));
+
+// ---------------------------2-----------------------------
+// const Form = {
+//     Input() {
+//         return <input type="text"/>
+//     },
+//     Checkbox() {
+//         return <input type="checkbox"/>
+//     }
+// }
+// function App() {
+//     const type = 'Input';
+//     const Component = Form[type];
+//     return (
+//         <div id="wrapper">
+//             <Form.Checkbox/>
+//             <Component/>
+//         </div>
+//     )
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// --------------------------------------------------------
+function Button({ title, href, onClick}) {
+    let Component = 'button';
+    const props = {};
+    if (href) {
+        Component = 'a'
+        props.href = href;
     }
-];
-function CourseItem({
-    title,
-    thumbnail_cdn,
-    description,
-    students_count,
-}) {
+    if (onClick) {
+        props.onClick = onClick;
+    }
     return (
-        <div className="course-item">
-            <img src={thumbnail_cdn} alt={title}/>
-            <h2 className="course-title">{title}</h2>
-            <p className="course-desc">{description}</p>
-            <p className="course-student-count">{students_count}</p>
-        </div>
-    );
+        <Component {...props} className="btn">{title}</Component>
+    )
 }
-
-function CourseList() {
+function App() {
     return (
-        <div className="courses-list">
-            {
-                courses.map((course, index) => {
-                    return <CourseItem
-                        key={index}
-                        title={course.title}
-                        thumbnail_cdn={course.thumbnail_cdn}
-                        description={course.description}
-                        students_count={course.students_count}
-                    />
-                })
-            }
+        <div id="wrapper">
+            <Button
+                title="Click me!"
+                href="https://fb.com/"
+                onClick={() => console.log(Math.random())}
+            />
         </div>
-    );
+    )
 }
-ReactDOM.render(<CourseList/>, document.querySelector('#root'));
+ReactDOM.render(<App/>, document.querySelector('#root'));
 
+// --------------------------------------------------------
+// function App() {
+//     let firstAccess = true;
+//     return (
+//         <div id="wrapper">
+//             {firstAccess && <h1>wellcome</h1>}
+//         </div>
+//     )
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// --------------------------3------------------------------

@@ -532,32 +532,32 @@
 // ReactDOM.render(<App/>, document.querySelector('#root'));
 
 // --------------------------------------------------------
-function Button({ title, href, onClick}) {
-    let Component = 'button';
-    const props = {};
-    if (href) {
-        Component = 'a'
-        props.href = href;
-    }
-    if (onClick) {
-        props.onClick = onClick;
-    }
-    return (
-        <Component {...props} className="btn">{title}</Component>
-    )
-}
-function App() {
-    return (
-        <div id="wrapper">
-            <Button
-                title="Click me!"
-                href="https://fb.com/"
-                onClick={() => console.log(Math.random())}
-            />
-        </div>
-    )
-}
-ReactDOM.render(<App/>, document.querySelector('#root'));
+// function Button({ title, href, onClick}) {
+//     let Component = 'button';
+//     const props = {};
+//     if (href) {
+//         Component = 'a'
+//         props.href = href;
+//     }
+//     if (onClick) {
+//         props.onClick = onClick;
+//     }
+//     return (
+//         <Component {...props} className="btn">{title}</Component>
+//     )
+// }
+// function App() {
+//     return (
+//         <div id="wrapper">
+//             <Button
+//                 title="Click me!"
+//                 href="https://fb.com/"
+//                 onClick={() => console.log(Math.random())}
+//             />
+//         </div>
+//     );
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
 
 // --------------------------------------------------------
 // function App() {
@@ -566,8 +566,70 @@ ReactDOM.render(<App/>, document.querySelector('#root'));
 //         <div id="wrapper">
 //             {firstAccess && <h1>wellcome</h1>}
 //         </div>
-//     )
+//     );
 // }
 // ReactDOM.render(<App/>, document.querySelector('#root'));
 
 // --------------------------3------------------------------
+// function Input({ label, ...inputProps }) {
+//     return (
+//         <div>
+//             <label>{label}</label>
+//             <input {...inputProps} />
+//         </div>
+//     )
+// }
+// function App() {
+//     return (
+//         <div id="wrapper">
+//             <Input
+//                 label="Full name"
+//                 // type="checkbox"
+//                 placeholder="Enter name..."
+//                 onFocus={
+//                     () => console.log(Math.random())
+//                 }
+//             />
+//         </div>
+//     );
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// --------------------------------------------------------
+// function Button({ children }) {
+//     return <button>{children}</button>
+// }
+// function App() {
+//     let title ="Click me!";
+//     return (
+//         <div id="wrapper">
+//             {/* <Button>Click me!</Button> */}
+//             <Button>{title}</Button>
+//         </div>
+//     );
+// }
+// ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// --------------------------------------------------------
+function List({ data, children }) {
+    return (
+        <ul>
+            {/* {data.map(item => <li key={item}>{item}</li>)} */}
+            {data.map(item => children(item))}
+        </ul>
+    );
+}
+function App() {
+    const cars = ['BMW', 'Honda', 'Mazda'];
+    return (
+        <div id="wrapper">
+            {/* <List data={cars} /> */}
+            <List data={cars}>
+                {(item) => <li key={item}>{item}</li>}
+            </List>
+        </div>
+    );
+}
+ReactDOM.render(<App/>, document.querySelector('#root'));
+
+// =======================what is Node JS?=======================

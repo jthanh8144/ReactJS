@@ -7,3 +7,5 @@ react-webpack
     npm install css-loader style-loader --save-dev
     npm install html-webpack-plugin --save-dev
     npm install webpack-dev-server --save-dev
+
+npx create-react-app name

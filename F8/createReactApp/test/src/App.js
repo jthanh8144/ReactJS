@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Content from './Content';
 
 // const orders = [1, 2, 3];
 
@@ -50,43 +51,48 @@ function App() {
   // const [name, setName] = useState('');
   // const [email, setEmail] = useState('');
 
-  const courses = [
-    {
-      id: 1,
-      name: 'A'
-    },
-    {
-      id: 2,
-      name: 'B'
-    },
-    {
-      id: 3,
-      name: 'C'
-    },
-  ];
-  // const [checked, setChecked] = useState(1);
-  const [checked, setChecked] = useState([]);
-  // console.log(checked);
-  const handleChecked = (id) => {
-    setChecked(prev => {
-      const isChecked = checked.includes(id);
-      if (isChecked) {
-        return checked.filter(item => item !== id);
-      } else {
-        return [...prev, id];
-      }
-    })
-  }
-  const handleSubmit = () => {
-    console.log({ id: checked });
-  }
+  // const courses = [
+  //   {
+  //     id: 1,
+  //     name: 'A'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'B'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'C'
+  //   },
+  // ];
+  // // const [checked, setChecked] = useState(1);
+  // const [checked, setChecked] = useState([]);
+  // // console.log(checked);
+  // const handleChecked = (id) => {
+  //   setChecked(prev => {
+  //     const isChecked = checked.includes(id);
+  //     if (isChecked) {
+  //       return checked.filter(item => item !== id);
+  //     } else {
+  //       return [...prev, id];
+  //     }
+  //   })
+  // }
+  // const handleSubmit = () => {
+  //   console.log({ id: checked });
+  // }
+
+  // --------------------------mounted & unmounted----------------------------------
+  const [show, setShow] = useState(false);
   
 
   return (
     <div className="App">
+      {/* --------------------------useState---------------------------------- */}
       {/* <h1>{JSON.stringify(info)}</h1>
       <button onClick={handleUpdate}>Update</button> */}
 
+      {/* --------------------------two-way binding---------------------------------- */}
       {/* <h1>{gift || 'Chưa có phần thưởng'}</h1>
       <button onClick={randomGift}>Lấy thưởng</button> */}
       {/* <input
@@ -108,7 +114,7 @@ function App() {
           {course.name}
         </div>
       ))} */}
-      {courses.map(course => (
+      {/* {courses.map(course => (
         <div key={course.id}>
           <input 
             type="checkbox" 
@@ -119,7 +125,12 @@ function App() {
         </div>
       ))}
 
-      <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleSubmit}>Submit</button> */}
+
+      {/* --------------------------useEffect---------------------------------- */}
+      <button onClick={() => setShow(!show)}>Toggle</button>
+      {show && <Content />}
+
     </div>
   );
 }

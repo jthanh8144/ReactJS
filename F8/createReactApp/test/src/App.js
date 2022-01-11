@@ -1,6 +1,8 @@
 import { useState } from 'react'
 // import Content from './Content';
-import FakeChatApp from './FakeChatApp';
+// import FakeChatApp from './FakeChatApp';
+import UseLayoutEffect from './UseLayoutEffect';
+import UseRef from './UseRef';
 
 // const orders = [1, 2, 3];
 
@@ -131,8 +133,10 @@ function App() {
       {/* --------------------------useEffect---------------------------------- */}
       <button onClick={() => setShow(!show)}>Toggle</button>
       {/* {show && <Content />} */}
-
-      {show && <FakeChatApp />}
+      {/* {show && <FakeChatApp />} */}
+      
+      {/* {show && <UseLayoutEffect />} */}
+      {show && <UseRef />}
     </div>
   );
 }

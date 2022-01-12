@@ -1,8 +1,11 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 // import Content from './Content';
 // import FakeChatApp from './FakeChatApp';
-import UseLayoutEffect from './UseLayoutEffect';
-import UseRef from './UseRef';
+// import UseLayoutEffect from './UseLayoutEffect';
+// import UseRef from './UseRef';
+// import Memo from './Memo';
+// import UseCallback from './UseCallback';
+import UseMemo from './UseMemo';
 
 // const orders = [1, 2, 3];
 
@@ -86,8 +89,23 @@ function App() {
   // }
 
   // --------------------------mounted & unmounted----------------------------------
-  const [show, setShow] = useState(false);
-  
+  // const [show, setShow] = useState(false);
+
+  // --------------------------memo----------------------------------
+  // const [count, setCount] = useState(0);
+  // const increase = () => {
+  //   setCount(count + 1);
+  // }
+  // const [count2, setCount2] = useState(0);
+  // const increase2 = () => {
+  //   setCount2(count2 + 1);
+  // }
+
+  // --------------------------useCallback----------------------------------
+  // const [count, setCount] = useState(0);
+  // const handleIncrease = useCallback(() => {
+  //   setCount(prev => prev + 1);
+  // }, []);
 
   return (
     <div className="App">
@@ -131,12 +149,23 @@ function App() {
       <button onClick={handleSubmit}>Submit</button> */}
 
       {/* --------------------------useEffect---------------------------------- */}
-      <button onClick={() => setShow(!show)}>Toggle</button>
+      {/* <button onClick={() => setShow(!show)}>Toggle</button> */}
       {/* {show && <Content />} */}
       {/* {show && <FakeChatApp />} */}
-      
+
       {/* {show && <UseLayoutEffect />} */}
-      {show && <UseRef />}
+      {/* {show && <UseRef />} */}
+
+      {/* <Memo count={count} />
+      <h1>{count}</h1>
+      <h1>{count2}</h1>
+      <button onClick={increase}>Click me</button>
+      <button onClick={increase2}>Click me 2</button> */}
+
+      {/* <UseCallback onIncrease={handleIncrease} />
+      <h1>{count}</h1> */}
+
+      <UseMemo />
     </div>
   );
 }

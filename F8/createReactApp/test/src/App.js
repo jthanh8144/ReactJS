@@ -1,11 +1,13 @@
-import { useCallback, useState } from 'react'
+// import { useCallback, useState } from 'react'
 // import Content from './Content';
 // import FakeChatApp from './FakeChatApp';
 // import UseLayoutEffect from './UseLayoutEffect';
 // import UseRef from './UseRef';
 // import Memo from './Memo';
 // import UseCallback from './UseCallback';
-import UseMemo from './UseMemo';
+// import UseMemo from './UseMemo';
+// import UseReducer from './UseReducer';
+import TodoUseReducer from './TodoUseReducer';
 
 // const orders = [1, 2, 3];
 
@@ -165,7 +167,11 @@ function App() {
       {/* <UseCallback onIncrease={handleIncrease} />
       <h1>{count}</h1> */}
 
-      <UseMemo />
+      {/* <UseMemo /> */}
+
+      {/* <UseReducer /> */}
+
+      <TodoUseReducer />
     </div>
   );
 }

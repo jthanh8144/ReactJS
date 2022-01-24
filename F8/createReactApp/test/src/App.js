@@ -7,7 +7,13 @@
 // import UseCallback from './UseCallback';
 // import UseMemo from './UseMemo';
 // import UseReducer from './UseReducer';
-import TodoUseReducer from './TodoUseReducer';
+// import TodoUseReducer from './TodoUseReducer';
+// import TodoApp from './Todo';
+
+// import UseContext from './UseContext/UseContext';
+// import './App.css';
+
+import GlobalState from './GlobalState';
 
 // const orders = [1, 2, 3];
 
@@ -171,7 +177,13 @@ function App() {
 
       {/* <UseReducer /> */}
 
-      <TodoUseReducer />
+      {/* <TodoUseReducer /> */}
+
+      {/* <TodoApp /> */}
+
+      {/* <UseContext /> */}
+
+      <GlobalState />
     </div>
   );
 }

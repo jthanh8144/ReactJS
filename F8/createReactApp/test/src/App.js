@@ -13,7 +13,7 @@
 // import UseContext from './UseContext/UseContext';
 // import './App.css';
 
-import GlobalState from './GlobalState';
+import UseImperativeHandle from './UseImperativeHandle/UseImperativeHandle';
 
 // const orders = [1, 2, 3];
 
@@ -183,7 +183,9 @@ function App() {
 
       {/* <UseContext /> */}
 
-      <GlobalState />
+      {/* <GlobalState /> */}
+
+      <UseImperativeHandle />
     </div>
   );
 }

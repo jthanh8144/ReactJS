@@ -9,6 +9,7 @@ function CssModule() {
             <Heading />
             <Paragraph />
             <Button primary />
+            <Button disabled />
         </GlobalStyles>
     );
 }

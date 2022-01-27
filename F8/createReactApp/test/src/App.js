@@ -14,7 +14,8 @@
 // import './App.css';
 
 // import UseImperativeHandle from './UseImperativeHandle/UseImperativeHandle';
-import CssModule from "./cssModule";
+// import CssModule from "./cssModule";
+import ReactRouter from "./ReactRouter";
 
 // const orders = [1, 2, 3];
 
@@ -188,7 +189,9 @@ function App() {
 
       {/* <UseImperativeHandle /> */}
 
-      <CssModule />
+      {/* <CssModule /> */}
+
+      <ReactRouter />
     </div>
   );
 }

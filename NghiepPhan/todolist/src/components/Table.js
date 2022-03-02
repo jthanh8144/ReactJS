@@ -1,7 +1,13 @@
-
+import { useContext, useState } from "react";
+import { AppContext } from "../App";
 import TableItem from "./TableItem";
 
 function Table() {
+    const appContext = useContext(AppContext);
+
+    const [filterName, setFilterName] = useState('');
+    const [filterStatus, setFilterStatus] = useState(-1);
+
     return (
         <table className="table table-bordered table-hover">
             <thead>
@@ -16,10 +22,19 @@ function Table() {
                 <tr>
                     <td></td>
                     <td>
-                        <input type="text" className="form-control" />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            value={filterName}
+                            onChange={(e) => setFilterName(e.target.value)}
+                        />
                     </td>
                     <td>
-                        <select className="form-control">
+                        <select 
+                            className="form-control"
+                            value={filterStatus}
+                            onChange={(e) => setFilterStatus(e.target.value)}
+                        >
                             <option value="-1">Tất Cả</option>
                             <option value="0">Ẩn</option>
                             <option value="1">Kích Hoạt</option>
@@ -28,7 +43,9 @@ function Table() {
                     <td></td>
                 </tr>
                 
-                <TableItem />
+                {appContext.tasks.map((task, index) => (
+                    <TableItem key={index} content={[index, task]} />
+                ))}
             </tbody>
         </table>
     );

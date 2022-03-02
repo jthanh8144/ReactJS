@@ -16,7 +16,7 @@ function TableItem({ content }) {
     const handleChangeStatus = (element) => {
         const id = getParent(element).id;
         const tasks = [...appContext.tasks];
-        const index = Array.from(tasks).findIndex(task => task.id == id);
+        const index = Array.from(tasks).findIndex(task => task.id === id);
         tasks[index].status = !tasks[index].status;
         appContext.setTasks(tasks);
         localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -25,7 +25,7 @@ function TableItem({ content }) {
     const handleDelete = (element) => {
         const id = getParent(element).id;
         const tasks = [...appContext.tasks];
-        const index = Array.from(tasks).findIndex(task => task.id == id);
+        const index = Array.from(tasks).findIndex(task => task.id === id);
         tasks.splice(index, 1);
         appContext.setTasks(tasks);
         localStorage.setItem('tasks', JSON.stringify(tasks));
@@ -34,11 +34,10 @@ function TableItem({ content }) {
     const handleUpdate = (element) => {
         appContext.setIsDisplayForm(true);
         const id = getParent(element).id;
-        const index = Array.from(appContext.tasks).findIndex(task => task.id == id);
+        const index = Array.from(appContext.tasks).findIndex(task => task.id === id);
         taskFormContext.setName(appContext.tasks[id].name);
         taskFormContext.setStatus(appContext.tasks[id].status);
         taskFormContext.setIndexEdit(index);
-        // taskFormContext.nameInput.current.focus();
     }
 
     return (

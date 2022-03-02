@@ -66,7 +66,7 @@ function TaskForm() {
             <div className="panel-body">
                 <form>
                     <div className="form-group">
-                        <label>Tên :</label>
+                        <label>Tên</label>
                         <input
                             type="text"
                             className="form-control"
@@ -76,7 +76,7 @@ function TaskForm() {
                             ref={taskFormContext.nameInput}
                         />
                     </div>
-                    <label>Trạng Thái :</label>
+                    <label>Trạng Thái</label>
                     <select
                         className="form-control"
                         required="required"
@@ -84,8 +84,8 @@ function TaskForm() {
                         value={taskFormContext.status}
                         onChange={(e) => taskFormContext.setStatus(e.target.value)}
                     >
-                        <option value={true}>Kích Hoạt</option>
-                        <option value={false}>Ẩn</option>
+                        <option value={true}>Đang thực hiện</option>
+                        <option value={false}>Đã hoàn thành</option>
                     </select>
                     <br />
                     <div className="text-center">

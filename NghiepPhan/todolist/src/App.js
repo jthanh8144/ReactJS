@@ -1,7 +1,6 @@
 import { useState, createContext } from 'react';
 import './App.css';
 import TaskForm from './components/TaskForm';
-import Control from './components/Control';
 import Table from './components/Table';
 import { TaskFormProvider } from './context/TaskFormContext';
 
@@ -36,14 +35,14 @@ function App() {
                     name: 'Công việc 3',
                     status: true,
                 },
-            ]
+            ];
             setTasks(temp);
             localStorage.setItem('tasks', JSON.stringify(temp));
         }
     }
 
     const handleOpenForm = () => {
-        if (isDisplayForm == false) {
+        if (isDisplayForm === false) {
             setIsDisplayForm(true);
         }
     }
@@ -87,7 +86,6 @@ function App() {
                             >
                                 Gen data
                             </button>
-                            <Control />
                             <div className="row mt-15">
                                 <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                     <Table tasks={tasks} />

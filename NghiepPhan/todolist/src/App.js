@@ -18,7 +18,7 @@ function App() {
     const [isDisplayForm, setIsDisplayForm] = useState(false);
 
     const handleGenData = () => {
-        if (localStorage.getItem('tasks') === null) {
+        if (localStorage.getItem('tasks') === null || localStorage.getItem('tasks') === '[]') {
             const temp = [
                 {
                     id: 0,

@@ -20,8 +20,8 @@ export const UploadIcon = ({
 );
 
 export const MessageIcon = ({
-    width = "3.2rem",
-    height = "3.2rem",
+    width = "2.6rem",
+    height = "2.6rem",
     className,
 }) => (
     <svg
@@ -62,8 +62,8 @@ export const NotificationIcon = ({
 );
 
 export const SearchIcon = ({
-    width = "3.2rem",
-    height = "3.2rem",
+    width = "2.4rem",
+    height = "2.4rem",
     className,
 }) => (
     <svg
@@ -71,7 +71,7 @@ export const SearchIcon = ({
         width={width}
         height={height}
         viewBox="0 0 48 48"
-        fill="rgba(22, 24, 35, 0.34)"
+        fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
         <path

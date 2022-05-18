@@ -1,0 +1,43 @@
+.wrapper {
+    background-color: rgb(26, 67, 136);
+}
+
+.content {
+    height: 100px;
+}
+
+.search-icon {
+    color: #fff;
+}
+
+.hotline {
+    display: block;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #eee;
+    border-radius: 50%;
+
+}
+
+.phone-icon {
+    color: #fff;
+    font-size: 15px;
+    transform: rotate(100deg);
+}
+
+.user-icon,
+.cart-icon {
+    width: 40px;
+    height: 40px;
+    color: #fff;
+}
+
+.cart {
+    position: relative;
+}
+
+.user {
+    cursor: pointer;
+}

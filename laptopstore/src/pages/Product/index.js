@@ -20,7 +20,7 @@ function Product() {
         };
         fetchProductList();
         // eslint-disable-next-line
-    }, [product]);
+    }, [productCode]);
 
     return (
         <>

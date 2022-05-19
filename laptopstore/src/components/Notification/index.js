@@ -4,7 +4,7 @@ import styles from "./Notification.module.scss";
 
 function Notification({ message }) {
     return (
-        <div class={classNames(styles.notification, "is-danger", "bg-danger")}>
+        <div className={classNames(styles.notification, "is-danger", "bg-danger")}>
             {message}
         </div>
     );

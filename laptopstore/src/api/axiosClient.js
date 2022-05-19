@@ -19,9 +19,12 @@ axiosClient.interceptors.response.use(response => {
         return response.data;
     }
     return response;
-}, (error) => {
-    // console.log(error);
-    throw error;
+}, async (error) => {
+    if (error.response.status === 401) {
+
+    } else {
+        throw error;
+    }
 });
 
 export default axiosClient;

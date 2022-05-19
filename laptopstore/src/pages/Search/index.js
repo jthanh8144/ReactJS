@@ -22,16 +22,16 @@ function Search() {
         };
         fetchProductList();
         // eslint-disable-next-line
-    }, [listSearch]);
+    }, [name]);
 
     return (
         <>
             <BannerTop />
             <Brand />
 
-            <div class="section">
-                <div class="container">
-                    <div class="row">
+            <div className="section">
+                <div className="container">
+                    <div className="row">
                         {listSearch.map((product) => (
                             <ProductItem product={product} key={product.id} />
                         ))}

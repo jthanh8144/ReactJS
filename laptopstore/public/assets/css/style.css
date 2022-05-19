@@ -1282,6 +1282,13 @@ button:focus,
     font-weight: 500;
     color: #081828;
     transition: all 0.4s ease;
+
+    overflow: hidden;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
 }
 
 .product-btn a {

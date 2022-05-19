@@ -3,26 +3,24 @@ import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 
 import styles from "./Navigation.module.scss";
+import brandApi from "~/api/brandApi";
 
 const cx = classNames.bind(styles);
 
 function Navigation() {
     const [listBrand, setListBrand] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        async function fetchData() {
-            await fetch(`http://laptopstoreapi-jthanh8144.herokuapp.com/brand/`)
-                .then((res) => res.json())
-                .then((res) => {
-                    setListBrand(res);
-                    console.log(listBrand);
-                    setLoading(false);
-                });
-        }
-        fetchData();
-        // eslint-disable-next-line
-    }, [loading]);
+        const fetchBrandList = async () => {
+            try {
+                const response = await brandApi.getAll();
+                setListBrand(response);
+            } catch (error) {
+                console.log("Failed: ", error);
+            }
+        };
+        fetchBrandList();
+    }, []);
 
     return (
         <div className={cx("wrapper")}>

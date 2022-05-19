@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -10,11 +10,21 @@ import {
     faSearch,
     faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
 function Header() {
+    const [searchInput, setSearchInput] = useState("");
+    const navigate = useNavigate();
+
     const currentUser = false;
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        navigate(`/products/search/${decodeURIComponent(searchInput)}`);
+        setSearchInput("");
+    };
 
     return (
         <div className={cx("wrapper")}>
@@ -28,14 +38,19 @@ function Header() {
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-0 col-sm-0 col-0 d-max-992-none">
-                        <form>
+                        <form onSubmit={(e) => handleSubmit(e)}>
                             <div className="search-head dp-flex">
                                 <input
                                     type="text"
                                     placeholder="Tìm kiếm sản phẩm"
                                     className="form-control"
+                                    name="name"
+                                    value={searchInput}
+                                    onChange={(e) =>
+                                        setSearchInput(e.target.value)
+                                    }
                                 />
-                                <button type="button">
+                                <button type="button" onClick={handleSubmit}>
                                     <FontAwesomeIcon
                                         icon={faSearch}
                                         className={cx("search-icon")}
@@ -105,7 +120,10 @@ function Header() {
                                             </div>
                                             <span> | </span>
                                             {/* eslint-disable-next-line */}
-                                            <a href="#" className="no-decoration">
+                                            <a
+                                                href="#"
+                                                className="no-decoration"
+                                            >
                                                 <span className="cursor-poin">
                                                     Đăng xuất
                                                 </span>

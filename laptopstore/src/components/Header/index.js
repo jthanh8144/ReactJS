@@ -19,7 +19,7 @@ function Header() {
     return (
         <div className={cx("wrapper")}>
             <div className="container">
-                <div class={cx("row align-items-center", "content")}>
+                <div className={cx("row align-items-center", "content")}>
                     <div className="col-lg-3 col-md-5 col-sm-5 col-5">
                         <div className="head-logo">
                             <Link to="/">
@@ -44,8 +44,8 @@ function Header() {
                             </div>
                         </form>
                     </div>
-                    <div class="col-lg-5 col-md-7 col-sm-7 col-7 dp-flex no-decoration">
-                        <div class="item-hotline dp-flex d-max-1200-none">
+                    <div className="col-lg-5 col-md-7 col-sm-7 col-7 dp-flex no-decoration">
+                        <div className="item-hotline dp-flex d-max-1200-none">
                             <a
                                 href="tel:0782 378 407"
                                 className={cx("hotline")}
@@ -104,8 +104,9 @@ function Header() {
                                                 </div>
                                             </div>
                                             <span> | </span>
+                                            {/* eslint-disable-next-line */}
                                             <a href="#" className="no-decoration">
-                                                <span class="cursor-poin">
+                                                <span className="cursor-poin">
                                                     Đăng xuất
                                                 </span>
                                             </a>

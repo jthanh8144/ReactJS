@@ -1,7 +1,14 @@
-
+import BannerTop from "~/components/BannerTop";
+import Brand from "~/components/Brand";
 
 function Home() {
-    return <div>Home</div>;
+    return (
+        <>
+            <BannerTop />
+            <Brand />
+            <div>Home</div>
+        </>
+    );
 }
 
 export default Home;

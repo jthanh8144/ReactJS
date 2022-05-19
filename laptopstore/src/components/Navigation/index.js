@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 
@@ -6,16 +7,22 @@ import styles from "./Navigation.module.scss";
 const cx = classNames.bind(styles);
 
 function Navigation() {
-    const listBrand = [
-        "Acer",
-        "Apple",
-        "Asus",
-        "Dell",
-        "Hp",
-        "LG",
-        "Msi",
-        "Lenovo",
-    ];
+    const [listBrand, setListBrand] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchData() {
+            await fetch(`http://laptopstoreapi-jthanh8144.herokuapp.com/brand/`)
+                .then((res) => res.json())
+                .then((res) => {
+                    setListBrand(res);
+                    console.log(listBrand);
+                    setLoading(false);
+                });
+        }
+        fetchData();
+        // eslint-disable-next-line
+    }, [loading]);
 
     return (
         <div className={cx("wrapper")}>
@@ -34,9 +41,9 @@ function Navigation() {
                                     {listBrand.map((brand, index) => (
                                         <li key={index}>
                                             <Link
-                                                to={`/products/search/${brand}`}
+                                                to={`/products/search/${brand.brand_name}`}
                                             >
-                                                {brand}
+                                                {brand.brand_name}
                                             </Link>
                                         </li>
                                     ))}
@@ -72,21 +79,25 @@ function Navigation() {
                         <div className="nav-social">
                             <ul>
                                 <li>
+                                    {/* eslint-disable-next-line */}
                                     <a href="#">
                                         <i className="lni lni-facebook-filled" />
                                     </a>
                                 </li>
                                 <li>
+                                    {/* eslint-disable-next-line */}
                                     <a href="#">
                                         <i className="lni lni-twitter-original" />
                                     </a>
                                 </li>
                                 <li>
+                                    {/* eslint-disable-next-line */}
                                     <a href="#">
                                         <i className="lni lni-instagram" />
                                     </a>
                                 </li>
                                 <li>
+                                    {/* eslint-disable-next-line */}
                                     <a href="#">
                                         <i className="lni lni-skype" />
                                     </a>

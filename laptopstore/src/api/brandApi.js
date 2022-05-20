@@ -1,9 +1,9 @@
-import axiosClient from "./axiosClient";
+import axiosPublic from "./axiosPublic";
 
 const brandApi = {
     getAll: (params) => {
         const url = '/brand';
-        return axiosClient.get(url, { params });
+        return axiosPublic.get(url, { params });
     },
 }
 

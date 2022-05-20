@@ -9,6 +9,7 @@ const images = {
     bnLeft3: require("~/assets/images/banner/bn-left-3.png"),
     bnLeft4: require("~/assets/images/banner/bn-left-4.png"),
     bnLeft5: require("~/assets/images/banner/bn-left-5.png"),
+    lh1: require("~/assets/images/lh1.png"),
 };
 
 export default images;

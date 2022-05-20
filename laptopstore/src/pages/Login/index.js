@@ -1,13 +1,20 @@
 import classNames from "classnames/bind";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Notification from "~/components/Notification";
 import styles from "./Login.module.scss";
 import userApi from "~/api/userApi";
+import { AuthContext } from "~/context/AuthContext";
 
 const cx = classNames.bind(styles);
 
-function Login({ message }) {
+function Login() {
+    const navigate = useNavigate();
+
+    const { loginUser } = useContext(AuthContext);
+
+    const [message, setMessage] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -16,27 +23,18 @@ function Login({ message }) {
 
         const fetchUser = async () => {
             try {
-                const response = await userApi.login(
-                    JSON.stringify({
-                        username,
-                        password,
-                    })
-                );
-                console.log(response);
-                // if (response.status === "register success") {
-                //     // alert("success");
-                //     navigate("/login")
-                // } else {
-                //     setMessage(response.status);
-                // }
+                const response = await userApi.login({
+                    username,
+                    password,
+                });
+                loginUser(response.access, response.refresh, response.username);
+                navigate(-1);
             } catch (error) {
-                console.log("Failed: ", error);
+                // console.log("Failed: ", error);
+                setMessage("Sai tài khoản hoặc mật khẩu");
             }
         };
-        if (
-            username &&
-            password
-        ) {
+        if (username && password) {
             fetchUser();
         }
     };

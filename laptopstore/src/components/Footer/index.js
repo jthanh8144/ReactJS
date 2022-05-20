@@ -143,7 +143,7 @@ function Footer() {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/">Sản phẩm</Link>
+                                                <Link to="/products">Sản phẩm</Link>
                                             </li>
                                             <li>
                                                 <Link to="/feedback">

@@ -1,24 +1,41 @@
+import { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import styles from "./Header.module.scss";
-import images from "~/assets/images";
 import {
     faCartShopping,
     faPhoneAlt,
     faSearch,
     faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+
+import styles from "./Header.module.scss";
+import images from "~/assets/images";
+import { AuthContext } from "~/context/AuthContext";
+import cartApi from "~/api/cartApi";
 
 const cx = classNames.bind(styles);
 
 function Header() {
-    const [searchInput, setSearchInput] = useState("");
     const navigate = useNavigate();
 
-    const currentUser = false;
+    const { user, logoutUser } = useContext(AuthContext);
+
+    const [searchInput, setSearchInput] = useState("");
+    const [cartCount, setCartCount] = useState(0);
+
+    useEffect(() => {
+        if (user) {
+            (async () => {
+                try {
+                    const response = await cartApi.get();
+                    setCartCount(response?.length);
+                } catch (error) {
+                    console.log("Failed: ", error);
+                }
+            })();
+        }
+    }, [user]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -76,7 +93,7 @@ function Header() {
                         </div>
 
                         <div className="item-account dp-flex">
-                            {currentUser ? (
+                            {!!user ? (
                                 <img
                                     src={images.placeholder}
                                     className="preview-img"
@@ -89,7 +106,7 @@ function Header() {
                                 />
                             )}
                             <h5>
-                                {currentUser ? (
+                                {!!user ? (
                                     <Link to="/user" className="no-decoration">
                                         TÀI KHOẢN
                                     </Link>
@@ -99,11 +116,11 @@ function Header() {
                                     </span>
                                 )}
                                 <div className="dn-dk">
-                                    {currentUser ? (
+                                    {!!user ? (
                                         <>
                                             <div className="cart-items">
                                                 <span className={cx("user")}>
-                                                    thanh vo
+                                                    {user}
                                                 </span>
                                                 <div className="shopping-item">
                                                     <div className="dropdown-cart-header">
@@ -120,14 +137,16 @@ function Header() {
                                             </div>
                                             <span> | </span>
                                             {/* eslint-disable-next-line */}
-                                            <a
-                                                href="#"
+                                            <span
                                                 className="no-decoration"
+                                                onClick={() => {
+                                                    logoutUser();
+                                                }}
                                             >
                                                 <span className="cursor-poin">
                                                     Đăng xuất
                                                 </span>
-                                            </a>
+                                            </span>
                                         </>
                                     ) : (
                                         <>
@@ -163,8 +182,10 @@ function Header() {
                                 icon={faCartShopping}
                                 className={cx("cart-icon")}
                             />
-                            {currentUser ? (
-                                <span className="countproductincart">0</span>
+                            {!!user ? (
+                                <span className="countproductincart">
+                                    {cartCount}
+                                </span>
                             ) : (
                                 <></>
                             )}

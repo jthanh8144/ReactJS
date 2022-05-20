@@ -65,6 +65,9 @@ function Navigation() {
                                             </a>
                                         </li>
                                         <li className="nav-item">
+                                            <Link to="/products">Sản phẩm</Link>
+                                        </li>
+                                        <li className="nav-item">
                                             <Link to="/feedback">Phản hồi</Link>
                                         </li>
                                     </ul>

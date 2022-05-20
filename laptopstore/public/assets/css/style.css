@@ -1617,7 +1617,6 @@ a {
     background-color: rgb(255, 9, 25) !important;
 }
 .delete-cart {
-    width: 15%;
     padding-left: 0px !important;
     padding-right: 0px !important;
 }
@@ -1737,17 +1736,6 @@ a {
 }
 .cart-p-actions {
     width: 20%;
-}
-.cart-p-actions-i i {
-    border: 1px solid rgb(172, 172, 172);
-    padding: 3px;
-    border-radius: 3px;
-    margin: 0px 5px;
-    cursor: pointer;
-}
-.cart-p-actions-i i:hover {
-    background-color: rgb(179, 179, 179);
-    color: #fff;
 }
 .pd-lr {
     padding-left: 10px !important;

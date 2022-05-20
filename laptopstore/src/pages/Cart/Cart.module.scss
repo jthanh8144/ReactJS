@@ -1,0 +1,20 @@
+.cart-action {
+    display: flex;
+    align-items: center;
+}
+
+.cart-quantity {
+    padding: 0 8px;
+}
+
+.update-cart {
+    padding: 5px;
+    cursor: pointer;
+    border: 1px solid #acacac;
+    border-radius: 5px;
+}
+
+.update-cart:hover {
+    background-color: rgb(179, 179, 179);
+    color: #fff;
+}

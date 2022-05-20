@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classNames from "classnames/bind";
 
 import { AuthContext } from "~/context/AuthContext";
 import images from "~/assets/images";
 import cartApi from "~/api/cartApi";
 import productsApi from "~/api/productsApi";
+import styles from "./Cart.module.scss";
 
 import BannerTop from "~/components/BannerTop";
-import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
+const cx = classNames.bind(styles);
 
 function Cart() {
     const navigate = useNavigate();
@@ -17,17 +21,18 @@ function Cart() {
 
     const [listProduct, setListProduct] = useState([]);
 
+    console.log(listProduct);
+
     useEffect(() => {
         (async () => {
             try {
                 const response = await cartApi.get();
-                response.forEach(async (product, index) => {
-                    const req = await productsApi.getById(product.product);
-                    response[index].img = req.img;
-                    response[index].price = req.price;
-                    response[index].name = req.name;
-                });
-                console.log(response);
+                for (let i = 0; i < response.length; i++) {
+                    const req = await productsApi.getById(response[i].product);
+                    response[i].img = req.img;
+                    response[i].price = req.price;
+                    response[i].name = req.name;
+                }
                 setListProduct(response);
             } catch (error) {
                 if (error.response.status === 401) {
@@ -75,9 +80,73 @@ function Cart() {
                         <div className="row justify-content-center">
                             <div className="col-lg-8 col-12">
                                 <div className="row align-items-center justify-content-center">
-                                    {listProduct.map((product) => {
-                                        console.log(product);
-                                    })}
+                                    {listProduct.map((product) => (
+                                        <div
+                                            key={product.id}
+                                            className="col-12 flex-column-1 items-cart mg-bottom-20 bd-rd-5"
+                                        >
+                                            <div className="align-middle dp-flex">
+                                                <img
+                                                    src={product.img}
+                                                    alt="product"
+                                                    height="100px"
+                                                    width="150px"
+                                                />
+                                                <div className="dp-flex cart-p-content align-items-center">
+                                                    <div className="cart-p-desc dp-flex align-items-center">
+                                                        <div>
+                                                            <span>
+                                                                {product.name}
+                                                            </span>
+                                                        </div>
+                                                        <div>
+                                                            <span>
+                                                                <b className="text-danger">
+                                                                    {
+                                                                        product.price
+                                                                    }
+                                                                    $
+                                                                </b>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="cart-p-actions dp-flex align-items-center">
+                                                        <div className={cx("cart-action")}>
+                                                            <FontAwesomeIcon
+                                                                icon={faMinus}
+                                                                className={cx(
+                                                                    "update-cart"
+                                                                )}
+                                                            />
+                                                            <span>
+                                                                <b className={cx("cart-quantity")}>
+                                                                    {
+                                                                        product.quantity
+                                                                    }
+                                                                </b>
+                                                            </span>
+                                                            <FontAwesomeIcon
+                                                                icon={faPlus}
+                                                                className={cx(
+                                                                    "update-cart"
+                                                                )}
+                                                            />
+                                                        </div>
+                                                        <button className="btn btn-danger">
+                                                            <FontAwesomeIcon
+                                                                icon={
+                                                                    faTrashCan
+                                                                }
+                                                                className={cx(
+                                                                    "delete-cart"
+                                                                )}
+                                                            />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             <div className="col-lg-3 col-12">
@@ -87,7 +156,7 @@ function Cart() {
                                             <span>Tạm tính</span>
 
                                             <span className="font-weight-500">
-                                                $auth.user.cart.carttotal$
+                                                carttotal$
                                             </span>
                                         </div>
                                         <div className="d-flex justify-content-between">
@@ -101,7 +170,7 @@ function Cart() {
                                             <span>Tổng cộng</span>
                                             <div className="">
                                                 <span className="font-weight-500 total-price-1">
-                                                    $auth.user.cart.carttotal$
+                                                    carttotal$
                                                 </span>
                                                 <span className="total-price-2">
                                                     (Đã bao gồm VAT nếu có)

@@ -11,6 +11,11 @@ const productsApi = {
         return axiosPublic.get(url)
     },
 
+    getById: (id) => {
+        const url = `/products/id/${id}`;
+        return axiosPublic.get(url)
+    },
+
     getHotProducts: (params) => {
         const url = '/products/hot';
         return axiosPublic.get(url, { params });

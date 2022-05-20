@@ -22,13 +22,11 @@ function Feedback() {
         const submit = async () => {
             try {
                 const response = await feedbackApi.sendFeedback({
-                    feedback: {
-                        title,
-                        name,
-                        email,
-                        phone,
-                        content,
-                    },
+                    title,
+                    name,
+                    email,
+                    phone,
+                    content,
                 });
                 setTitle("");
                 setName("");

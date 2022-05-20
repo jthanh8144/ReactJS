@@ -1,11 +1,9 @@
 import { createContext, useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import jwt_decode from "jwt-decode";
 
 const AuthContext = createContext();
 
 function AuthProvider({ children }) {
-    // const navigate = useNavigate();
+    const [cartNum, setCartNum] = useState(0);
 
     const [authTokens, setAuthTokens] = useState(() =>
         localStorage.getItem("authTokens")
@@ -40,11 +38,13 @@ function AuthProvider({ children }) {
     };
 
     const contextData = {
+        cartNum,
+        setCartNum,
         user: user,
-        authTokens: authTokens,
-        refresh: refresh,
-        setAuthTokens: setAuthTokens,
         setUser: setUser,
+        authTokens: authTokens,
+        setAuthTokens: setAuthTokens,
+        refresh: refresh,
         setRefresh: setRefresh,
         loginUser: loginUser,
         logoutUser: logoutUser,

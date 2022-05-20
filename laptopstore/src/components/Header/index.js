@@ -12,30 +12,36 @@ import {
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import { AuthContext } from "~/context/AuthContext";
-import cartApi from "~/api/cartApi";
+import userApi from "~/api/userApi";
 
 const cx = classNames.bind(styles);
 
 function Header() {
     const navigate = useNavigate();
 
-    const { user, logoutUser } = useContext(AuthContext);
+    const { user, logoutUser, cartNum, setCartNum } = useContext(AuthContext);
 
     const [searchInput, setSearchInput] = useState("");
-    const [cartCount, setCartCount] = useState(0);
+    // const [cartCount, setCartCount] = useState(0);
 
     useEffect(() => {
         if (user) {
             (async () => {
                 try {
-                    const response = await cartApi.get();
-                    setCartCount(response?.length);
+                    const response = await userApi.get();
+                    setCartNum(response?.user?.num);
                 } catch (error) {
-                    console.log("Failed: ", error);
+                    // console.log("Failed: ", error);
+                    if (error.response.status === 401) {
+                        logoutUser();
+                        alert("Bạn chưa đăng nhập");
+                        // navigate("/login");
+                    }
                 }
             })();
         }
-    }, [user]);
+        // eslint-disable-next-line
+    }, [user, cartNum]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -184,7 +190,7 @@ function Header() {
                             />
                             {!!user ? (
                                 <span className="countproductincart">
-                                    {cartCount}
+                                    {cartNum}
                                 </span>
                             ) : (
                                 <></>

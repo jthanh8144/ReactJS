@@ -1,4 +1,5 @@
 import axiosPublic from "./axiosPublic";
+import axiosPrivate from "./axiosPrivate";
 
 const userApi = {
     register: (data) => {
@@ -11,32 +12,20 @@ const userApi = {
         return axiosPublic.post(url, data);
     },
 
-    // , { headers: { isAuth: "true" } }
+    get: (params) => {
+        const url = '/user';
+        return axiosPrivate.get(url, { params });
+    },
 
-    // getAll: (params) => {
-    //     const url = '/products';
-    //     return axiosPublic.get(url, { params });
-    // },
+    changePass: (data) => {
+        const url = "/user/changepass/";
+        return axiosPrivate.put(url, data);
+    },
 
-    // get: (id) => {
-    //     const url = `/products/${id}`;
-    //     return axiosPublic.get(url)
-    // },
-
-    // getHotProducts: (params) => {
-    //     const url = '/products/hot';
-    //     return axiosPublic.get(url, { params });
-    // },
-
-    // getNewProducts: (params) => {
-    //     const url = '/products/new';
-    //     return axiosPublic.get(url, { params });
-    // },
-
-    // getInstockProducts: (params) => {
-    //     const url = '/products/instock';
-    //     return axiosPublic.get(url, { params });
-    // },
+    updateUser: (data) => {
+        const url = "/user/updateuser/";
+        return axiosPrivate.put(url, data);
+    },
 };
 
 export default userApi;

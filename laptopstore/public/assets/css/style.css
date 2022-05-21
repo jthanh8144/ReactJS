@@ -1771,10 +1771,10 @@ a {
 .pd-10 {
     padding: 15px !important;
 }
-.add-pr {
+/* .add-pr {
     width: 150px;
     height: 100px;
-}
+} */
 
 @media (max-width: 1383px) {
     .pd-top-1383 {

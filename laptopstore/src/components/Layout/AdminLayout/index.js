@@ -32,9 +32,9 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faUserShield} />
                                 </i>
-                                <a href="/">
+                                <Link to="/admin">
                                     <span>Admin</span>
-                                </a>
+                                </Link>
                             </div>
                             <div className="logout-adm mg-right-20">
                                 <span
@@ -61,7 +61,7 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faTachometerAlt} />
                                 </i>
-                                <Link to="/">
+                                <Link to="/admin">
                                     <span>Dashboard</span>
                                 </Link>
                             </div>

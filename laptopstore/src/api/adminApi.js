@@ -6,20 +6,20 @@ const adminApi = {
         return axiosPrivate.get(url, { params });
     },
 
-    // addToCart: (data) => {
-    //     const url = "/cart/add/";
-    //     return axiosPrivate.post(url, data);
-    // },
+    addProduct: (data) => {
+        const url = "/admin/product/";
+        return axiosPrivate.post(url, data);
+    },
 
-    // updateCart: (data) => {
-    //     const url = "/cart/update/";
-    //     return axiosPrivate.put(url, data);
-    // },
+    editProduct: (data) => {
+        const url = "/admin/product/";
+        return axiosPrivate.put(url, data);
+    },
 
-    // checkout: (data) => {
-    //     const url = "/cart/checkout/";
-    //     return axiosPrivate.post(url, data);
-    // },
+    deleteProduct: (data) => {
+        const url = "/admin/product/";
+        return axiosPrivate.delete(url, { data: data });
+    },
 };
 
 export default adminApi;

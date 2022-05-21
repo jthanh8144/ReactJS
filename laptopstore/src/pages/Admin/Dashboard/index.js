@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
     faCartShopping,
     faEnvelopeOpenText,
@@ -9,7 +9,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classNames from "classnames/bind";
 
-import styles from "./Dashboard.module.scss";
+import styles from "../Admin.module.scss";
+import { AuthContext } from "~/context/AuthContext";
 import productsApi from "~/api/productsApi";
 import feedbackApi from "~/api/feedbackApi";
 import adminApi from "~/api/adminApi";
@@ -17,19 +18,31 @@ import adminApi from "~/api/adminApi";
 const cx = classNames.bind(styles);
 
 function Dashboard() {
+    const navigate = useNavigate();
+    const { logoutUser } = useContext(AuthContext);
+
     const [product, setProduct] = useState(0);
     const [order, setOrder] = useState(0);
     const [feedback, setFeedback] = useState(0);
 
     useEffect(() => {
         (async () => {
-            const reqProduct = await productsApi.getAll();
-            setProduct(reqProduct.length);
-            const reqOrder = await adminApi.getAll();
-            setOrder(reqOrder.length);
-            const reqFeedback = await feedbackApi.getAll();
-            setFeedback(reqFeedback.length);
+            try {
+                const reqProduct = await productsApi.getAll();
+                setProduct(reqProduct.length);
+                const reqOrder = await adminApi.getAll();
+                setOrder(reqOrder.length);
+                const reqFeedback = await feedbackApi.getAll();
+                setFeedback(reqFeedback.length);
+            } catch (error) {
+                if (error.response && error.response.status === 401) {
+                    logoutUser();
+                    alert("Bạn chưa đăng nhập");
+                    navigate("/");
+                }
+            }
         })();
+        // eslint-disable-next-line
     }, []);
 
     return (
@@ -58,7 +71,7 @@ function Dashboard() {
                 <div className="col-lg-3 col-md-6 col-12">
                     <div className="product-adm user">
                         <div className="d-column">
-                            <Link to="/admin/products">PRODUCTS</Link>
+                            <Link to="/admin/product">PRODUCTS</Link>
                             <span>{product}</span>
                         </div>
                         <div>
@@ -73,7 +86,7 @@ function Dashboard() {
                 <div className="col-lg-3 col-md-6 col-12">
                     <div className="order-adm user">
                         <div className="d-column">
-                            <Link to="/admin/orders">ORDERS</Link>
+                            <Link to="/admin/order">ORDERS</Link>
                             <span>{order}</span>
                         </div>
                         <div>

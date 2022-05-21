@@ -11,6 +11,7 @@ const images = {
     bnLeft5: require("~/assets/images/banner/bn-left-5.png"),
     lh1: require("~/assets/images/lh1.png"),
     emptyCart: require("~/assets/images/empty-cart.png"),
+    placeholderImage: require("~/assets/images/placeholder-image.png"),
 };
 
 export default images;

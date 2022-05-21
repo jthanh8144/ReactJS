@@ -44,7 +44,7 @@ function Product() {
             </div>
             <div className="row">
                 <div className="col-12 table-responsive">
-                    <table className="table table-bordered table-striped table-hover align-middle-dt">
+                    <table className="table table-bordered table-hover bg-white align-middle-dt">
                         <thead>
                             <tr>
                                 <th>Mã SP</th>

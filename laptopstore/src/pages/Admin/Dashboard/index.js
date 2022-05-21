@@ -105,7 +105,7 @@ function Dashboard() {
                             <span>{feedback}</span>
                         </div>
                         <div>
-                            <Link to="">
+                            <Link to="/admin/feedback">
                                 <i>
                                     <FontAwesomeIcon
                                         icon={faEnvelopeOpenText}

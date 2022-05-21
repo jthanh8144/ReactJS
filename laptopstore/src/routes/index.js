@@ -13,7 +13,7 @@ import User from "~/pages/User";
 import Cart from "~/pages/Cart";
 import Checkout from "~/pages/Checkout";
 import Order from "~/pages/Order";
-import { Dashboard, AdminProduct, AddProduct, EditProduct } from "~/pages/Admin";
+import { Dashboard, AdminProduct, AddProduct, EditProduct, AdminFeedback } from "~/pages/Admin";
 
 const publicRoutes = [
     { path: "/", component: Home },
@@ -34,6 +34,7 @@ const privateRoutes = [
     { path: "/admin/product", component: AdminProduct, layout: AdminLayout },
     { path: "/admin/product/add", component: AddProduct, layout: AdminLayout },
     { path: "/admin/product/:code", component: EditProduct, layout: AdminLayout },
+    { path: "/admin/feedback", component: AdminFeedback, layout: AdminLayout },
 ];
 
 export { publicRoutes, privateRoutes };

@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import classNames from "classnames/bind";
 
 import styles from "../Admin.module.scss";

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinus, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames/bind";
 
 import { AuthContext } from "~/context/AuthContext";
@@ -8,9 +9,7 @@ import images from "~/assets/images";
 import cartApi from "~/api/cartApi";
 import productsApi from "~/api/productsApi";
 import styles from "./Cart.module.scss";
-
 import BannerTop from "~/components/BannerTop";
-import { faMinus, faPlus, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 const cx = classNames.bind(styles);
 
@@ -20,20 +19,24 @@ function Cart() {
     const { logoutUser } = useContext(AuthContext);
 
     const [listProduct, setListProduct] = useState([]);
-
-    console.log(listProduct);
+    const [cartTotal, setCartTotal] = useState(0);
+    const [isUpdate, setIsUpdate] = useState(false);
 
     useEffect(() => {
         (async () => {
             try {
                 const response = await cartApi.get();
-                for (let i = 0; i < response.length; i++) {
-                    const req = await productsApi.getById(response[i].product);
-                    response[i].img = req.img;
-                    response[i].price = req.price;
-                    response[i].name = req.name;
+                for (let i = 0; i < response.num; i++) {
+                    const req = await productsApi.getById(
+                        response.products[i].product
+                    );
+                    response.products[i].img = req.img;
+                    response.products[i].price = req.price;
+                    response.products[i].name = req.name;
+                    response.products[i].instock = req.stock;
                 }
-                setListProduct(response);
+                setListProduct(response.products);
+                setCartTotal(response.total);
             } catch (error) {
                 if (error.response.status === 401) {
                     logoutUser();
@@ -43,7 +46,25 @@ function Cart() {
             }
         })();
         // eslint-disable-next-line
-    }, []);
+    }, [isUpdate]);
+
+    const updateCart = (id, action) => {
+        (async () => {
+            try {
+                await cartApi.updateCart({
+                    product_id: id,
+                    operator: action,
+                });
+                setIsUpdate((prev) => !prev);
+            } catch (error) {
+                if (error.response.status === 401) {
+                    logoutUser();
+                    alert("Bạn chưa đăng nhập");
+                    navigate("/");
+                }
+            }
+        })();
+    };
 
     return (
         <div className="bg-color-brown">
@@ -82,7 +103,7 @@ function Cart() {
                                 <div className="row align-items-center justify-content-center">
                                     {listProduct.map((product) => (
                                         <div
-                                            key={product.id}
+                                            key={product.product}
                                             className="col-12 flex-column-1 items-cart mg-bottom-20 bd-rd-5"
                                         >
                                             <div className="align-middle dp-flex">
@@ -111,15 +132,33 @@ function Cart() {
                                                         </div>
                                                     </div>
                                                     <div className="cart-p-actions dp-flex align-items-center">
-                                                        <div className={cx("cart-action")}>
+                                                        <div
+                                                            className={cx(
+                                                                "cart-action"
+                                                            )}
+                                                        >
                                                             <FontAwesomeIcon
                                                                 icon={faMinus}
                                                                 className={cx(
-                                                                    "update-cart"
+                                                                    "update-cart",
+                                                                    product.quantity ===
+                                                                        1
+                                                                        ? "disabled"
+                                                                        : ""
                                                                 )}
+                                                                onClick={() =>
+                                                                    updateCart(
+                                                                        product.product,
+                                                                        "-"
+                                                                    )
+                                                                }
                                                             />
                                                             <span>
-                                                                <b className={cx("cart-quantity")}>
+                                                                <b
+                                                                    className={cx(
+                                                                        "cart-quantity"
+                                                                    )}
+                                                                >
                                                                     {
                                                                         product.quantity
                                                                     }
@@ -128,7 +167,16 @@ function Cart() {
                                                             <FontAwesomeIcon
                                                                 icon={faPlus}
                                                                 className={cx(
-                                                                    "update-cart"
+                                                                    "update-cart",
+                                                                    product.quantity +
+                                                                        1 >
+                                                                        product.instock
+                                                                        ? "disabled"
+                                                                        : ""
+                                                                )}
+                                                                onClick={() => updateCart(
+                                                                    product.product,
+                                                                    "+"
                                                                 )}
                                                             />
                                                         </div>
@@ -140,6 +188,12 @@ function Cart() {
                                                                 className={cx(
                                                                     "delete-cart"
                                                                 )}
+                                                                onClick={() =>
+                                                                    updateCart(
+                                                                        product.product,
+                                                                        "x"
+                                                                    )
+                                                                }
                                                             />
                                                         </button>
                                                     </div>
@@ -156,7 +210,7 @@ function Cart() {
                                             <span>Tạm tính</span>
 
                                             <span className="font-weight-500">
-                                                carttotal$
+                                                {cartTotal}$
                                             </span>
                                         </div>
                                         <div className="d-flex justify-content-between">
@@ -170,16 +224,15 @@ function Cart() {
                                             <span>Tổng cộng</span>
                                             <div className="">
                                                 <span className="font-weight-500 total-price-1">
-                                                    carttotal$
+                                                    {cartTotal}$
                                                 </span>
                                                 <span className="total-price-2">
                                                     (Đã bao gồm VAT nếu có)
                                                 </span>
                                             </div>
                                         </div>
-                                        <Link to="cart/checkout">
+                                        <Link to="/checkout">
                                             <button
-                                                type="button"
                                                 className="btn muahang"
                                             >
                                                 Đặt Hàng

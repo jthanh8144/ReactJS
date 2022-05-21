@@ -11,6 +11,7 @@ import Search from "~/pages/Search";
 import Feedback from "~/pages/Feedback";
 import User from "~/pages/User";
 import Cart from "~/pages/Cart";
+import Checkout from "~/pages/Checkout";
 
 const publicRoutes = [
     { path: "/", component: Home },
@@ -25,6 +26,7 @@ const publicRoutes = [
 const privateRoutes = [
     { path: "/user", component: User },
     { path: "/cart", component: Cart },
+    { path: "/checkout", component: Checkout },
 ];
 
 export { publicRoutes, privateRoutes };

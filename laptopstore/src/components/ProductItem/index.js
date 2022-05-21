@@ -13,7 +13,7 @@ function ProductItem({ product }) {
             try {
                 await cartApi.addToCart({ product_id: product.id });
                 const response = await cartApi.get();
-                setCartNum(response?.length);
+                setCartNum(response?.num);
             } catch (error) {
                 if (error.response.status === 401) {
                     logoutUser();

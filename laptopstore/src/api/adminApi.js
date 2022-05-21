@@ -6,6 +6,16 @@ const adminApi = {
         return axiosPrivate.get(url, { params });
     },
 
+    updateOrderStatus: (data) => {
+        const url = "/admin/order/";
+        return axiosPrivate.post(url, data);
+    },
+
+    cancelOrder: (data) => {
+        const url = "/admin/order/";
+        return axiosPrivate.delete(url, { data: data });
+    },
+
     addProduct: (data) => {
         const url = "/admin/product/";
         return axiosPrivate.post(url, data);

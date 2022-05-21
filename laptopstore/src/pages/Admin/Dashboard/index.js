@@ -75,7 +75,7 @@ function Dashboard() {
                             <span>{product}</span>
                         </div>
                         <div>
-                            <Link to="">
+                            <Link to="/admin/product">
                                 <i>
                                     <FontAwesomeIcon icon={faLaptop} />
                                 </i>
@@ -90,7 +90,7 @@ function Dashboard() {
                             <span>{order}</span>
                         </div>
                         <div>
-                            <Link to="">
+                            <Link to="/admin/order">
                                 <i>
                                     <FontAwesomeIcon icon={faCartShopping} />
                                 </i>

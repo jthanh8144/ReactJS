@@ -12,6 +12,7 @@ import Feedback from "~/pages/Feedback";
 import User from "~/pages/User";
 import Cart from "~/pages/Cart";
 import Checkout from "~/pages/Checkout";
+import Order from "~/pages/Order";
 
 const publicRoutes = [
     { path: "/", component: Home },
@@ -27,6 +28,7 @@ const privateRoutes = [
     { path: "/user", component: User },
     { path: "/cart", component: Cart },
     { path: "/checkout", component: Checkout },
+    { path: "/user/orders", component: Order },
 ];
 
 export { publicRoutes, privateRoutes };

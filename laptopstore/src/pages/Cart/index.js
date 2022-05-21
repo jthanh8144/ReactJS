@@ -174,10 +174,12 @@ function Cart() {
                                                                         ? "disabled"
                                                                         : ""
                                                                 )}
-                                                                onClick={() => updateCart(
-                                                                    product.product,
-                                                                    "+"
-                                                                )}
+                                                                onClick={() =>
+                                                                    updateCart(
+                                                                        product.product,
+                                                                        "+"
+                                                                    )
+                                                                }
                                                             />
                                                         </div>
                                                         <button className="btn btn-danger">
@@ -232,9 +234,7 @@ function Cart() {
                                             </div>
                                         </div>
                                         <Link to="/checkout">
-                                            <button
-                                                className="btn muahang"
-                                            >
+                                            <button className="btn muahang">
                                                 Đặt Hàng
                                             </button>
                                         </Link>

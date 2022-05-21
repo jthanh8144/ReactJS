@@ -26,6 +26,16 @@ const userApi = {
         const url = "/user/updateuser/";
         return axiosPrivate.put(url, data);
     },
+
+    order: (params) => {
+        const url = '/user/order';
+        return axiosPrivate.get(url, { params });
+    },
+
+    cancelOrder: (data) => {
+        const url = "/user/order/";
+        return axiosPrivate.post(url, data);
+    },
 };
 
 export default userApi;

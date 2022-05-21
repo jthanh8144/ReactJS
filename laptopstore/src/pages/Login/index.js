@@ -28,7 +28,12 @@ function Login() {
                     password,
                 });
                 loginUser(response.access, response.refresh, response.username);
-                navigate(-1);
+                const res = await userApi.get();
+                if (res.user.is_staff) {
+                    navigate("/admin");
+                } else {
+                    navigate(-1);
+                }
             } catch (error) {
                 // console.log("Failed: ", error);
                 setMessage("Sai tài khoản hoặc mật khẩu");

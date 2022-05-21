@@ -1644,6 +1644,7 @@ a {
 }
 .row-top-adm {
     height: 40px;
+    border-bottom: 1px solid #fff;
 }
 .logo-adm span,
 .logo-adm i {
@@ -1670,13 +1671,16 @@ a {
     background-color: #293742;
 }
 .left-adm {
-    height: 100vh;
+    height: calc(100vh - 40px);
 }
 .left-adm div {
     padding: 10px 0px;
 }
 .left-adm i {
     padding-right: 15px;
+    width: 40px;
+    display: inline-flex;
+    justify-content: center;
 }
 .user {
     display: flex;
@@ -1700,7 +1704,7 @@ a {
     color: #fff;
 }
 .user i {
-    font-size: 70px;
+    font-size: 50px;
     color: #fff;
 }
 .user-adm {

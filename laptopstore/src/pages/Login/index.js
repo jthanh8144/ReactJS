@@ -35,7 +35,6 @@ function Login() {
                     navigate(-1);
                 }
             } catch (error) {
-                // console.log("Failed: ", error);
                 setMessage("Sai tài khoản hoặc mật khẩu");
             }
         };

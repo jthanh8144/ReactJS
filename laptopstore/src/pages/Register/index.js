@@ -35,10 +35,29 @@ function Register() {
                     })
                 );
                 if (response.status === "register success") {
-                    // alert("success");
-                    navigate("/login")
+                    alert("Đăng kí tài khoản thành công");
+                    navigate("/");
                 } else {
-                    setMessage(response.status);
+                    switch (response.status) {
+                        case "You must enter all fields":
+                            setMessage("Bạn cần điền tất cả các trường!");
+                            break;
+                        case "User alrealdy exist":
+                            setMessage("Tài khoản đã tồn tại!");
+                            break;
+                        case "Password contains at least 6 characters. It must contain letters and numbers.":
+                            setMessage(
+                                "Mật khẩu phải có chữ và số, chứa ít nhất 6 kí tự!"
+                            );
+                            break;
+                        case "Password not match":
+                            setMessage(
+                                "Mật khẩu và xác nhận mật khẩu không khớp"
+                            );
+                            break;
+                        default:
+                            break;
+                    }
                 }
             } catch (error) {
                 console.log("Failed: ", error);

@@ -55,7 +55,6 @@ function Checkout() {
     const handleSubmit = () => {
         if (address) {
             (async () => {
-                console.log({ address });
                 const response = await cartApi.checkout({ address });
                 if (response.status === "pending") {
                     setMessage("Đặt hàng thành công");

@@ -17,25 +17,25 @@ import { Dashboard, AdminProduct, AddProduct, EditProduct, AdminFeedback, AdminO
 
 const publicRoutes = [
     { path: "/", component: Home },
-    { path: "/login", component: Login, layout: null },
-    { path: "/register", component: Register, layout: null },
-    { path: "/products", component: Products },
-    { path: "/products/:productCode", component: Product },
-    { path: "/products/search/:name", component: Search },
-    { path: "/feedback", component: Feedback },
+    { path: "/login/", component: Login, layout: null },
+    { path: "/register/", component: Register, layout: null },
+    { path: "/products/", component: Products },
+    { path: "/products/:productCode/", component: Product },
+    { path: "/products/search/:name/", component: Search },
+    { path: "/feedback/", component: Feedback },
 ];
 
 const privateRoutes = [
-    { path: "/user", component: User },
-    { path: "/cart", component: Cart },
-    { path: "/checkout", component: Checkout },
-    { path: "/user/orders", component: Order },
-    { path: "/admin", component: Dashboard, layout: AdminLayout },
-    { path: "/admin/product", component: AdminProduct, layout: AdminLayout },
-    { path: "/admin/product/add", component: AddProduct, layout: AdminLayout },
-    { path: "/admin/product/:code", component: EditProduct, layout: AdminLayout },
-    { path: "/admin/feedback", component: AdminFeedback, layout: AdminLayout },
-    { path: "/admin/order", component: AdminOrder, layout: AdminLayout },
+    { path: "/user/", component: User },
+    { path: "/cart/", component: Cart },
+    { path: "/checkout/", component: Checkout },
+    { path: "/user/orders/", component: Order },
+    { path: "/admin/", component: Dashboard, layout: AdminLayout },
+    { path: "/admin/product/", component: AdminProduct, layout: AdminLayout },
+    { path: "/admin/product/add/", component: AddProduct, layout: AdminLayout },
+    { path: "/admin/product/:code/", component: EditProduct, layout: AdminLayout },
+    { path: "/admin/feedback/", component: AdminFeedback, layout: AdminLayout },
+    { path: "/admin/order/", component: AdminOrder, layout: AdminLayout },
 ];
 
 export { publicRoutes, privateRoutes };

@@ -16,7 +16,7 @@ const cx = classNames.bind(styles);
 function Cart() {
     const navigate = useNavigate();
 
-    const { logoutUser } = useContext(AuthContext);
+    const { logoutUser, setCartNum } = useContext(AuthContext);
 
     const [listProduct, setListProduct] = useState([]);
     const [cartTotal, setCartTotal] = useState(0);
@@ -55,6 +55,8 @@ function Cart() {
                     product_id: id,
                     operator: action,
                 });
+                const response = await cartApi.get();
+                setCartNum(response?.num);
                 setIsUpdate((prev) => !prev);
             } catch (error) {
                 if (error.response.status === 401) {
@@ -233,7 +235,7 @@ function Cart() {
                                                 </span>
                                             </div>
                                         </div>
-                                        <Link to="/checkout">
+                                        <Link to="/checkout/">
                                             <button className="btn muahang">
                                                 Đặt Hàng
                                             </button>

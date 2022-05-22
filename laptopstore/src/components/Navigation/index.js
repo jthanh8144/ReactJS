@@ -54,7 +54,6 @@ function Navigation() {
                                         <li className="nav-item">
                                             <Link
                                                 to="/"
-                                                // className="active"
                                             >
                                                 Trang chủ
                                             </Link>
@@ -65,10 +64,10 @@ function Navigation() {
                                             </a>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/products">Sản phẩm</Link>
+                                            <Link to="/products/">Sản phẩm</Link>
                                         </li>
                                         <li className="nav-item">
-                                            <Link to="/feedback">Phản hồi</Link>
+                                            <Link to="/feedback/">Phản hồi</Link>
                                         </li>
                                     </ul>
                                 </div>

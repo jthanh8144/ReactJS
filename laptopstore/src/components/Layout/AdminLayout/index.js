@@ -32,7 +32,7 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faUserShield} />
                                 </i>
-                                <Link to="/admin">
+                                <Link to="/admin/">
                                     <span>Admin</span>
                                 </Link>
                             </div>
@@ -61,7 +61,7 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faTachometerAlt} />
                                 </i>
-                                <Link to="/admin">
+                                <Link to="/admin/">
                                     <span>Dashboard</span>
                                 </Link>
                             </div>
@@ -75,7 +75,7 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faLaptop} />
                                 </i>
-                                <Link to="/admin/product">
+                                <Link to="/admin/product/">
                                     <span>Product</span>
                                 </Link>
                             </div>
@@ -83,7 +83,7 @@ function AdminLayout({ children }) {
                                 <i>
                                     <FontAwesomeIcon icon={faBagShopping} />
                                 </i>
-                                <Link to="/admin/order">
+                                <Link to="/admin/order/">
                                     <span>Orders</span>
                                 </Link>
                             </div>
@@ -93,7 +93,7 @@ function AdminLayout({ children }) {
                                         icon={faEnvelopeOpenText}
                                     />
                                 </i>
-                                <Link to="/admin/feedback">
+                                <Link to="/admin/feedback/">
                                     <span>Feedback</span>
                                 </Link>
                             </div>

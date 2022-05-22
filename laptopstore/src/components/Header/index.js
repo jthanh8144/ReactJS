@@ -31,11 +31,10 @@ function Header() {
                     const response = await userApi.get();
                     setCartNum(response?.user?.num);
                 } catch (error) {
-                    // console.log("Failed: ", error);
                     if (error.response.status === 401) {
                         logoutUser();
                         alert("Bạn chưa đăng nhập");
-                        // navigate("/login");
+                        navigate("/");
                     }
                 }
             })();
@@ -113,7 +112,7 @@ function Header() {
                             )}
                             <h5>
                                 {!!user ? (
-                                    <Link to="/user" className="no-decoration">
+                                    <Link to="/user/" className="no-decoration">
                                         TÀI KHOẢN
                                     </Link>
                                 ) : (
@@ -132,7 +131,7 @@ function Header() {
                                                     <div className="dropdown-cart-header">
                                                         <span>
                                                             <Link
-                                                                to="/user/orders"
+                                                                to="/user/orders/"
                                                                 className="no-decoration"
                                                             >
                                                                 Lịch sử đơn hàng
@@ -158,7 +157,7 @@ function Header() {
                                         <>
                                             <div className="cart-items">
                                                 <Link
-                                                    to="/login"
+                                                    to="/login/"
                                                     className="no-decoration"
                                                 >
                                                     <span> Đăng nhập</span>
@@ -166,7 +165,7 @@ function Header() {
                                             </div>
                                             <span> | </span>
                                             <Link
-                                                to="/register"
+                                                to="/register/"
                                                 className="no-decoration"
                                             >
                                                 <span> Đăng ký</span>
@@ -178,7 +177,7 @@ function Header() {
                         </div>
 
                         <Link
-                            to="/cart"
+                            to="/cart/"
                             className={cx(
                                 "item-account dp-flex align-items-center",
                                 "cart"

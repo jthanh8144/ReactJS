@@ -138,15 +138,15 @@ function Footer() {
                                                 <Link to="/">Trang chủ</Link>
                                             </li>
                                             <li>
-                                                <Link to="/introduction">
+                                                <Link to="/">
                                                     Giới thiệu
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to="/products">Sản phẩm</Link>
+                                                <Link to="/products/">Sản phẩm</Link>
                                             </li>
                                             <li>
-                                                <Link to="/feedback">
+                                                <Link to="/feedback/">
                                                     Phản hồi
                                                 </Link>
                                             </li>

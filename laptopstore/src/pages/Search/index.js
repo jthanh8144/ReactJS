@@ -15,7 +15,6 @@ function Search() {
             try {
                 const response = await productsApi.search({ name: name });
                 setListSearch(response);
-                // console.log(listSearch);
             } catch (error) {
                 console.log("Failed: ", error);
             }

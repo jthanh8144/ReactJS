@@ -21,7 +21,6 @@ function Product() {
                 const response = await productsApi.get(productCode);
                 setProduct(response);
             } catch (error) {
-                // navigate('..');
                 console.log(error);
             }
         };

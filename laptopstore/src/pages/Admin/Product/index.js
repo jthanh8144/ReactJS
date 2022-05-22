@@ -55,7 +55,7 @@ function Product() {
                                 <th>Số lượng</th>
                                 <th className={cx("text-center")}>
                                     <Link
-                                        to="/admin/product/add"
+                                        to="/admin/product/add/"
                                         className="btn btn-success"
                                     >
                                         <i>

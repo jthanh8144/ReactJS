@@ -71,11 +71,11 @@ function Dashboard() {
                 <div className="col-lg-3 col-md-6 col-12">
                     <div className="product-adm user">
                         <div className="d-column">
-                            <Link to="/admin/product">PRODUCTS</Link>
+                            <Link to="/admin/product/">PRODUCTS</Link>
                             <span>{product}</span>
                         </div>
                         <div>
-                            <Link to="/admin/product">
+                            <Link to="/admin/product/">
                                 <i>
                                     <FontAwesomeIcon icon={faLaptop} />
                                 </i>
@@ -86,11 +86,11 @@ function Dashboard() {
                 <div className="col-lg-3 col-md-6 col-12">
                     <div className="order-adm user">
                         <div className="d-column">
-                            <Link to="/admin/order">ORDERS</Link>
+                            <Link to="/admin/order/">ORDERS</Link>
                             <span>{order}</span>
                         </div>
                         <div>
-                            <Link to="/admin/order">
+                            <Link to="/admin/order/">
                                 <i>
                                     <FontAwesomeIcon icon={faCartShopping} />
                                 </i>
@@ -101,11 +101,11 @@ function Dashboard() {
                 <div className="col-lg-3 col-md-6 col-12">
                     <div className="messages-adm user">
                         <div className="d-column">
-                            <Link to="/admin/feedback">Feedback</Link>
+                            <Link to="/admin/feedback/">Feedback</Link>
                             <span>{feedback}</span>
                         </div>
                         <div>
-                            <Link to="/admin/feedback">
+                            <Link to="/admin/feedback/">
                                 <i>
                                     <FontAwesomeIcon
                                         icon={faEnvelopeOpenText}

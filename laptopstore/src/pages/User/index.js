@@ -70,12 +70,10 @@ function User() {
                         ship_address: "",
                         img: "",
                     };
-                    console.log(data);
                     const response = await userApi.updateUser(data);
                     setEditUserMessage(response?.status);
                     setIsEditing(false)
                 } catch (error) {
-                    console.log(error);
                     if (error.response.status === 401) {
                         logoutUser();
                         alert("Bạn chưa đăng nhập");

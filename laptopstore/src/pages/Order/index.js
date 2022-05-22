@@ -19,7 +19,6 @@ function Order() {
             try {
                 const response = await userApi.order();
                 if (response.status !== "You don't have orders.") {
-                    console.log(response);
                     for (let i = 0; i < response.length; i++) {
                         for (let j = 0; j < response[i].details.length; j++) {
                             const req = await productsApi.getById(

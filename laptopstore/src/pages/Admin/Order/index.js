@@ -30,7 +30,6 @@ function Order() {
                         response[i].details[j].img = req.img;
                     }
                 }
-                console.log(response);
                 setListOrder(response);
             } catch (error) {
                 if (error.response && error.response.status === 401) {

@@ -93,7 +93,6 @@ function EditProduct() {
     const handleDelete = () => {
         (async () => {
             try {
-                console.log({ product_id: productId });
                 const response = await adminApi.deleteProduct({ product_id: productId });
                 if (response.status === "Delete product success") {
                     alert("Xóa sản phẩm thành công");

@@ -1,6 +1,6 @@
 export const UploadIcon = ({
-    width = "3.2rem",
-    height = "3.2rem",
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -20,8 +20,8 @@ export const UploadIcon = ({
 );
 
 export const MessageIcon = ({
-    width = "2.6rem",
-    height = "2.6rem",
+    width = '2.6rem',
+    height = '2.6rem',
     className,
 }) => (
     <svg
@@ -41,8 +41,8 @@ export const MessageIcon = ({
 );
 
 export const NotificationIcon = ({
-    width = "3.2rem",
-    height = "3.2rem",
+    width = '3.2rem',
+    height = '3.2rem',
     className,
 }) => (
     <svg
@@ -62,8 +62,8 @@ export const NotificationIcon = ({
 );
 
 export const SearchIcon = ({
-    width = "2.4rem",
-    height = "2.4rem",
+    width = '2.4rem',
+    height = '2.4rem',
     className,
 }) => (
     <svg

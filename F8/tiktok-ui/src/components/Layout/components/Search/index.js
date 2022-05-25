@@ -1,20 +1,20 @@
-import { useEffect, useRef, useState } from "react";
-import classNames from "classnames/bind";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleXmark, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import HeadlessTippy from "@tippyjs/react/headless";
+import { useEffect, useRef, useState } from 'react';
+import classNames from 'classnames/bind';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import HeadlessTippy from '@tippyjs/react/headless';
 
-import * as searchService from "~/apiServices/searchService";
-import styles from "./Search.module.scss";
-import AccountItem from "~/components/AccountItem";
-import { Wrapper as PopperWrapper } from "~/components/Popper";
-import { SearchIcon } from "~/components/Icons";
-import { useDebounce } from "~/hooks";
+import * as searchService from '~/apiServices/searchService';
+import styles from './Search.module.scss';
+import AccountItem from '~/components/AccountItem';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import { SearchIcon } from '~/components/Icons';
+import { useDebounce } from '~/hooks';
 
 const cx = classNames.bind(styles);
 
 function Search() {
-    const [searchValue, setSearchValue] = useState("");
+    const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
@@ -42,7 +42,7 @@ function Search() {
     }, [debounced]);
 
     const handleClear = () => {
-        setSearchValue("");
+        setSearchValue('');
         setSearchResult([]);
         inputRef.current.focus();
     };
@@ -53,7 +53,7 @@ function Search() {
 
     const handleChange = (e) => {
         const searchValue = e.target.value;
-        if (!searchValue.startsWith(" ")) {
+        if (!searchValue.startsWith(' ')) {
             setSearchValue(searchValue);
         }
     };
@@ -63,9 +63,9 @@ function Search() {
             interactive={true}
             visible={showResult && searchResult.length > 0}
             render={(attrs) => (
-                <div className={cx("search-result")} tabIndex={-1}>
+                <div className={cx('search-result')} tabIndex={-1}>
                     <PopperWrapper>
-                        <h4 className={cx("search-title")}>Accounts</h4>
+                        <h4 className={cx('search-title')}>Accounts</h4>
                         {searchResult.map((result) => (
                             <AccountItem key={result.id} data={result} />
                         ))}
@@ -74,7 +74,7 @@ function Search() {
             )}
             onClickOutside={handleHideResult}
         >
-            <div className={cx("search")}>
+            <div className={cx('search')}>
                 <input
                     ref={inputRef}
                     placeholder="Search accounts and videos"
@@ -84,20 +84,20 @@ function Search() {
                     onFocus={() => setShowResult(true)}
                 />
                 {!!searchValue && !loading && (
-                    <button className={cx("clear")} onClick={handleClear}>
+                    <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
 
                 {loading && (
                     <FontAwesomeIcon
-                        className={cx("loading")}
+                        className={cx('loading')}
                         icon={faSpinner}
                     />
                 )}
 
                 <button
-                    className={cx("search-btn")}
+                    className={cx('search-btn')}
                     onMouseDown={(e) => e.preventDefault()}
                 >
                     <SearchIcon />

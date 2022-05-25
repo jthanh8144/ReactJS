@@ -1,7 +1,7 @@
-import classNames from "classnames/bind";
-import { Link } from "react-router-dom";
+import classNames from 'classnames/bind';
+import { Link } from 'react-router-dom';
 
-import styles from "./Button.module.scss";
+import styles from './Button.module.scss';
 
 const cx = classNames.bind(styles);
 
@@ -22,7 +22,7 @@ function Button({
     onClick,
     ...props
 }) {
-    let Comp = "button";
+    let Comp = 'button';
     const _props = {
         onClick,
         ...props,
@@ -31,9 +31,9 @@ function Button({
     if (disabled) {
         Object.keys(props).forEach((key) => {
             if (key.startsWith('on') && typeof _props[key] === 'function') {
-                delete _props.key
+                delete _props.key;
             }
-        })
+        });
     }
 
     if (to) {
@@ -41,10 +41,10 @@ function Button({
         Comp = Link;
     } else if (href) {
         _props.href = href;
-        Comp = "a";
+        Comp = 'a';
     }
 
-    const classes = cx("wrapper", {
+    const classes = cx('wrapper', {
         [className]: className,
         primary,
         outline,

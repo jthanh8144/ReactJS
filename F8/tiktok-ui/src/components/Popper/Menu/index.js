@@ -1,11 +1,11 @@
-import { useState } from "react";
-import classNames from "classnames/bind";
-import Tippy from "@tippyjs/react/headless";
+import { useState } from 'react';
+import classNames from 'classnames/bind';
+import Tippy from '@tippyjs/react/headless';
 
-import { Wrapper as PopperWrapper } from "~/components/Popper";
-import styles from "./Menu.module.scss";
-import MenuItem from "./MenuItem";
-import Header from "./Header";
+import { Wrapper as PopperWrapper } from '~/components/Popper';
+import styles from './Menu.module.scss';
+import MenuItem from './MenuItem';
+import Header from './Header';
 
 const cx = classNames.bind(styles);
 
@@ -48,11 +48,11 @@ function Menu({
             offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
-                <div className={cx("menu-list")} tabIndex={-1}>
-                    <PopperWrapper className={cx("menu-popper")}>
+                <div className={cx('menu-list')} tabIndex={-1}>
+                    <PopperWrapper className={cx('menu-popper')}>
                         {history.length > 1 && (
                             <Header
-                                title={"Language"}
+                                title={'Language'}
                                 onBack={() => {
                                     setHistory((prev) =>
                                         prev.slice(0, prev.length - 1)

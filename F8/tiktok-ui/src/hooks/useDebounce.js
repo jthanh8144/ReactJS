@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function useDebounce(value, delay) {
     const [debouncedValue, setDebouncedValue] = useState(value);
@@ -6,7 +6,7 @@ function useDebounce(value, delay) {
     useEffect(() => {
         const handler = setTimeout(() => setDebouncedValue(value), delay);
         return () => clearTimeout(handler);
-    // eslint-disable-next-line
+        // eslint-disable-next-line
     }, [value]);
 
     return debouncedValue;

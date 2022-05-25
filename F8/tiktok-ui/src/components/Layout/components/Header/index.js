@@ -1,4 +1,5 @@
 // import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,6 +15,7 @@ import {
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
+import routesConfig from "~/config/routes";
 import styles from "./Header.module.scss";
 import images from "~/assets/images";
 import Button from "~/components/Button";
@@ -56,7 +58,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-
     const currentUser = true;
 
     const handleMenuChange = (menuItem) => {
@@ -91,7 +92,9 @@ function Header() {
     return (
         <header className={cx("wrapper")}>
             <div className={cx("inner")}>
-                <img src={images.logo} alt="Logo" />
+                <Link to={routesConfig.home} className={cx("logo-link")}>
+                    <img src={images.logo} alt="Logo" />
+                </Link>
 
                 <Search />
 

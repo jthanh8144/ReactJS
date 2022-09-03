@@ -1,11 +1,8 @@
 import axios from "axios";
 import queryString from "query-string";
 
-const BASE_URL = "http://laptopstoreapi-jthanh8144.herokuapp.com/";
-// const BASE_URL = "http://127.0.0.1:8888/";
-
 const axiosPrivate = axios.create({
-    baseURL: BASE_URL,
+    baseURL: process.env.REACT_APP_API_URL,
     headers: {
         "content-type": "application/json",
     },

@@ -77,7 +77,7 @@ function EditProduct() {
                     });
                     if (response.status === "Update product success") {
                         alert("Chỉnh sửa sản phẩm thành công");
-                        navigate("/admin/product");
+                        navigate("/admin/products");
                     }
                 } catch (error) {
                     if (error.response && error.response.status === 401) {
@@ -96,7 +96,7 @@ function EditProduct() {
                 const response = await adminApi.deleteProduct({ product_id: productId });
                 if (response.status === "Delete product success") {
                     alert("Xóa sản phẩm thành công");
-                    navigate("/admin/product");
+                    navigate("/admin/products");
                 }
             } catch (error) {
                 if (error.response && error.response.status === 401) {

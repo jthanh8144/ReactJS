@@ -4338,6 +4338,10 @@ top: 2px;
   font-weight: 500;
 }
 
+.head-logo {
+  display: flex;
+}
+
 .review-modal .modal-body {
   padding: 25px;
 }

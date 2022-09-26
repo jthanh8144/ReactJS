@@ -1,4 +1,4 @@
-import axiosPublic from "./axiosPublic";
+import axiosPublic from './axiosPublic';
 
 const productsApi = {
     getAll: (params) => {
@@ -6,14 +6,14 @@ const productsApi = {
         return axiosPublic.get(url, { params });
     },
 
-    get: (id) => {
-        const url = `/products/${id}`;
-        return axiosPublic.get(url)
+    get: (code) => {
+        const url = `/products/${code}`;
+        return axiosPublic.get(url);
     },
 
     getById: (id) => {
-        const url = `/products/id/${id}`;
-        return axiosPublic.get(url)
+        const url = `/products`;
+        return axiosPublic.get(url, { params: { id } });
     },
 
     getHotProducts: (params) => {
@@ -31,10 +31,10 @@ const productsApi = {
         return axiosPublic.get(url, { params });
     },
 
-    search: (data) => {
-        const url = '/products/search/';
-        return axiosPublic.post(url, data);
-    }
-}
+    search: (name) => {
+        const url = '/products';
+        return axiosPublic.get(url, { params: { q: name } });
+    },
+};
 
 export default productsApi;

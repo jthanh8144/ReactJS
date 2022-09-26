@@ -1,5 +1,5 @@
 const images = {
-    logo: require("~/assets/images/logo_ankhang.png"),
+    logo: require("~/assets/images/logo.png"),
     placeholder: require("~/assets/images/placeholder.png"),
     creditCard: require("~/assets/images/credit-cards-footer.png"),
     bnRight1: require("~/assets/images/banner/bn-right-1.png"),

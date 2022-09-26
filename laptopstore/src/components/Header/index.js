@@ -55,7 +55,7 @@ function Header() {
                     <div className="col-lg-3 col-md-5 col-sm-5 col-5">
                         <div className="head-logo">
                             <Link to="/">
-                                <img src={images.logo} alt="logo" />
+                                <img src={images.logo} alt="logo" className={cx("logo-img")} />
                             </Link>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ function Header() {
                             )}
                             <h5>
                                 {!!user ? (
-                                    <Link to="/user/" className="no-decoration">
+                                    <Link to="/user" className="no-decoration">
                                         TÀI KHOẢN
                                     </Link>
                                 ) : (
@@ -131,7 +131,7 @@ function Header() {
                                                     <div className="dropdown-cart-header">
                                                         <span>
                                                             <Link
-                                                                to="/user/orders/"
+                                                                to="/user/orders"
                                                                 className="no-decoration"
                                                             >
                                                                 Lịch sử đơn hàng
@@ -157,7 +157,7 @@ function Header() {
                                         <>
                                             <div className="cart-items">
                                                 <Link
-                                                    to="/login/"
+                                                    to="/login"
                                                     className="no-decoration"
                                                 >
                                                     <span> Đăng nhập</span>
@@ -165,7 +165,7 @@ function Header() {
                                             </div>
                                             <span> | </span>
                                             <Link
-                                                to="/register/"
+                                                to="/register"
                                                 className="no-decoration"
                                             >
                                                 <span> Đăng ký</span>
@@ -177,7 +177,7 @@ function Header() {
                         </div>
 
                         <Link
-                            to="/cart/"
+                            to="/cart"
                             className={cx(
                                 "item-account dp-flex align-items-center",
                                 "cart"

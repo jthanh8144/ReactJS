@@ -38,7 +38,7 @@ function Brand() {
                             {listBrand.map((brand) => (
                                 <SwiperSlide key={brand.id}>
                                     <Link
-                                        to={`/products/search/${brand.brand_name}`}
+                                        to={`/brands/${brand.id}/products`}
                                     >
                                         <img
                                             alt="brand"

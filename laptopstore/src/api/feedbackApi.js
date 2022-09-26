@@ -3,12 +3,12 @@ import axiosPrivate from "./axiosPrivate";
 
 const feedbackApi = {
     sendFeedback: (data) => {
-        const url = "/feedback/send/";
+        const url = "/feedbacks";
         return axiosPublic.post(url, data);
     },
 
     getAll: (params) => {
-        const url = "/feedback";
+        const url = "/admin/feedbacks";
         return axiosPrivate.get(url, { params });
     },
 };

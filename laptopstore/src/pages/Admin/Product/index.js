@@ -55,7 +55,7 @@ function Product() {
                                 <th>Số lượng</th>
                                 <th className={cx("text-center")}>
                                     <Link
-                                        to="/admin/product/add/"
+                                        to="/admin/products/add"
                                         className="btn btn-success"
                                     >
                                         <i>
@@ -89,7 +89,7 @@ function Product() {
                                     </td>
                                     <td className={cx("text-center")}>
                                         <Link
-                                            to={`/admin/product/${decodeURIComponent(
+                                            to={`/admin/products/${decodeURIComponent(
                                                 product.product_code
                                             )}`}
                                             className="btn btn-danger"

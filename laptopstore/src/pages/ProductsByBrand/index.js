@@ -1,27 +1,28 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import productsApi from "~/api/productsApi";
+import brandApi from "~/api/brandApi";
 import BannerTop from "~/components/BannerTop";
 import Brand from "~/components/Brand";
 import ProductItem from "~/components/ProductItem";
 
-function Search() {
-    const { name } = useParams();
-    const [listSearch, setListSearch] = useState([]);
+function ProductsByBrand() {
+    const { id } = useParams();
+    const [listProducts, setListProducts] = useState([]);
+    console.log(id);
 
     useEffect(() => {
         const fetchProductList = async () => {
             try {
-                const response = await productsApi.search(name);
-                setListSearch(response);
+                const response = await brandApi.getProductsByBrand(id);
+                setListProducts(response);
             } catch (error) {
                 console.log("Failed: ", error);
             }
         };
         fetchProductList();
         // eslint-disable-next-line
-    }, [name]);
+    }, [id]);
 
     return (
         <>
@@ -31,7 +32,7 @@ function Search() {
             <div className="section">
                 <div className="container">
                     <div className="row">
-                        {listSearch.map((product) => (
+                        {listProducts.map((product) => (
                             <ProductItem product={product} key={product.id} />
                         ))}
                     </div>
@@ -41,4 +42,4 @@ function Search() {
     );
 }
 
-export default Search;
+export default ProductsByBrand;

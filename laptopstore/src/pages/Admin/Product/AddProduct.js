@@ -64,7 +64,7 @@ function AddProduct() {
                     });
                     if (response.status === "Add product success") {
                         alert("Thêm sản phẩm thành công");
-                        navigate("/admin/product");
+                        navigate("/admin/products");
                     }
                 } catch (error) {
                     if (error.response && error.response.status === 401) {

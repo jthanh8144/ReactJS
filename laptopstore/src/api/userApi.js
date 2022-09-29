@@ -1,14 +1,14 @@
-import axiosPublic from "./axiosPublic";
-import axiosPrivate from "./axiosPrivate";
+import axiosPublic from './axiosPublic';
+import axiosPrivate from './axiosPrivate';
 
 const userApi = {
     register: (data) => {
-        const url = "/user/register";
+        const url = '/user/register';
         return axiosPublic.post(url, data);
     },
 
     login: (data) => {
-        const url = "/user/login";
+        const url = '/user/login';
         return axiosPublic.post(url, data);
     },
 
@@ -18,12 +18,12 @@ const userApi = {
     },
 
     changePass: (data) => {
-        const url = "/user/changepass";
+        const url = '/user/changepass';
         return axiosPrivate.put(url, data);
     },
 
     updateUser: (data) => {
-        const url = "/user/updateuser";
+        const url = '/user/updateuser';
         return axiosPrivate.put(url, data);
     },
 
@@ -33,7 +33,7 @@ const userApi = {
     },
 
     cancelOrder: (data) => {
-        const url = "/user/order";
+        const url = '/user/order';
         return axiosPrivate.post(url, data);
     },
 };

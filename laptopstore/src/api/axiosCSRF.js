@@ -1,9 +1,7 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 import queryString from 'query-string';
-import axiosCSRF from './axiosCSRF';
 
-const axiosPublic = axios.create({
+const axiosCSRF = axios.create({
     baseURL: process.env.REACT_APP_API_URL,
     headers: {
         'content-type': 'application/json',
@@ -11,19 +9,17 @@ const axiosPublic = axios.create({
     paramsSerializer: (params) => queryString.stringify(params),
 });
 
-axiosPublic.interceptors.request.use(async (config) => {
-    const token = await axiosCSRF.get('/csrf-token');
-    Cookies.set('csrftoken', token);
+axiosCSRF.interceptors.request.use(async (config) => {
     config.xsrfCookieName = 'csrftoken';
     config.xsrfHeaderName = 'X-CSRFTOKEN';
-    config.withCredentials = true;
+    config.withCredentials = true
     return config;
 });
 
-axiosPublic.interceptors.response.use(
+axiosCSRF.interceptors.response.use(
     (response) => {
-        if (response && response.data) {
-            return response.data;
+        if (response && response.data.token) {
+            return response.data.token;
         }
         return response;
     },
@@ -32,4 +28,4 @@ axiosPublic.interceptors.response.use(
     }
 );
 
-export default axiosPublic;
+export default axiosCSRF;

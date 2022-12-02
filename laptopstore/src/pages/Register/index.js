@@ -45,9 +45,9 @@ function Register() {
                         case "User alrealdy exist":
                             setMessage("Tài khoản đã tồn tại!");
                             break;
-                        case "Password contains at least 6 characters. It must contain letters and numbers.":
+                        case "Password contains at least 8 characters. It must contain uppercase, lowercase letters, numbers and special characters.":
                             setMessage(
-                                "Mật khẩu phải có chữ và số, chứa ít nhất 6 kí tự!"
+                                "Mật khẩu phải có chữ hoa, chữ thường, số, kí tự đặc biệt và chứa ít nhất 8 kí tự!"
                             );
                             break;
                         case "Password not match":
